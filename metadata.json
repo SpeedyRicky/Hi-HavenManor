@@ -1,0 +1,6 @@
+{
+  "name": "Hi Haven",
+  "description": "A luxury modern web experience for Hi Haven Manor, an accredited personal care home and supportive senior living sanctuary in Holyrood, Newfoundland & Labrador.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
