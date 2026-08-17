@@ -16,142 +16,139 @@ export const LuxuryFooter: React.FC<LuxuryFooterProps> = ({
   };
 
   return (
-    <footer className="site-luxury-footer" id="site-footer">
-      <div className="footer-content-grid">
-        {/* Column 1: Brand & Philosophy */}
-        <div className="space-y-4">
-          <div className="brand-identity-lockup">
-            <span className="font-serif text-3xl font-bold tracking-widest text-[#FAF7F2]">
-              HI HAVEN
-            </span>
-            <span className="text-[11px] uppercase tracking-[0.25em] text-[#9B8258] font-semibold mt-1">
-              MANOR • HOLYROOD, NL
-            </span>
-          </div>
-
-          <p className="text-xs text-[#A89C8C] leading-relaxed max-w-sm">
-            An accredited personal care home and supportive senior living sanctuary in Holyrood, Newfoundland & Labrador. Over 20 years of dedicated service under {BUSINESS_INFO.legalName}.
-          </p>
-
-          <div className="flex items-center gap-2 text-xs text-[#9B8258]">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Licensed by Government of Newfoundland & Labrador</span>
-          </div>
-        </div>
-
-        {/* Column 2: Quick Links */}
-        <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-[#FAF7F2] mb-4">
-            Sanctuary & Care
-          </h4>
-          <ul className="space-y-2 text-xs text-[#C8BCAC]">
-            <li>
-              <a href="#sanctuary" className="hover:text-white transition-colors">The Sanctuary</a>
-            </li>
-            <li>
-              <a href="#care-programs" className="hover:text-white transition-colors">Care & Programs</a>
-            </li>
-            <li>
-              <a href="#heritage" className="hover:text-white transition-colors">Our 20+ Year Heritage</a>
-            </li>
-            <li>
-              <a href="#residences" className="hover:text-white transition-colors">Accommodations & Suites</a>
-            </li>
-            <li>
-              <a href="#experience" className="hover:text-white transition-colors">Daily Life & Activities</a>
-            </li>
-            <li>
-              <a href="#gallery" className="hover:text-white transition-colors">Visual Gallery</a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 3: Admissions & Tools */}
-        <div>
-          <h4 className="text-xs font-bold uppercase tracking-widest text-[#FAF7F2] mb-4">
-            Admissions
-          </h4>
-          <ul className="space-y-2 text-xs text-[#C8BCAC]">
-            <li>
-              <a href="#admissions" className="hover:text-white transition-colors">Admissions Process</a>
-            </li>
-            <li>
-              <a href="#standards" className="hover:text-white transition-colors">Provincial Standards</a>
-            </li>
-            <li>
-              <a href="#faqs" className="hover:text-white transition-colors">Frequently Asked Questions</a>
-            </li>
-            <li>
-              <button onClick={onOpenAssessmentModal} className="hover:text-white transition-colors text-left">
-                Care Needs Quiz
-              </button>
-            </li>
-            <li>
-              <button onClick={onOpenTourModal} className="hover:text-white transition-colors text-left text-[#9B8258] font-semibold">
-                Schedule a Visit
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        {/* Column 4: Contact & Location */}
-        <div className="space-y-3">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-[#FAF7F2] mb-4">
-            Location & Contact
-          </h4>
-
-          <div className="flex items-start gap-2.5 text-xs text-[#C8BCAC]">
-            <MapPin className="w-4 h-4 text-[#9B8258] flex-shrink-0 mt-0.5" />
+    <footer className="bg-[#1C2622] text-[#E5DFC5] pt-16 pb-12 border-t border-[#2D3E37]" id="site-footer">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-[#2D3E37]">
+          
+          {/* Column 1: Brand & Identity */}
+          <div className="lg:col-span-5 space-y-4">
             <div>
-              <p className="font-semibold text-[#FAF7F2]">{BUSINESS_INFO.name} (Hi-Haven Manor)</p>
-              <p>{BUSINESS_INFO.location.address}</p>
-              <p>{BUSINESS_INFO.location.town}, {BUSINESS_INFO.location.province} {BUSINESS_INFO.location.postalCode}</p>
+              <span className="font-serif text-2xl font-normal tracking-[0.15em] uppercase text-[#FAF8F5]">
+                HI HAVEN MANOR
+              </span>
+              <p className="text-xs uppercase tracking-wider text-[#8C705B] mt-1">
+                Community Care Home • Holyrood, NL
+              </p>
+            </div>
+
+            <p className="text-xs text-[#BAC7C0] leading-relaxed max-w-md font-light">
+              A 17-bed residential care home providing personal care, medication supervision, and supportive mental health & addiction recovery in Holyrood, Newfoundland & Labrador. Operated with heart by Lori & Rob Condon under {BUSINESS_INFO.legalName}.
+            </p>
+
+            <div className="flex items-center gap-2 text-xs text-[#FAF8F5] pt-2">
+              <ShieldCheck className="w-4 h-4 text-[#8C705B]" />
+              <span>Licensed Level 1 & 2 Personal Care Home (NL Health Services)</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 text-xs text-[#C8BCAC]">
-            <Phone className="w-4 h-4 text-[#9B8258] flex-shrink-0" />
-            <a href={`tel:${BUSINESS_INFO.contact.phone}`} className="hover:text-white font-semibold text-[#FAF7F2]">
-              {BUSINESS_INFO.contact.phone}
-            </a>
+          {/* Column 2: Navigation Links */}
+          <div className="lg:col-span-2 space-y-3">
+            <span className="text-[11px] uppercase tracking-wider text-[#FAF8F5] block font-semibold">
+              The Home
+            </span>
+            <ul className="space-y-2 text-xs text-[#BAC7C0]">
+              <li>
+                <a href="#sanctuary" className="hover:text-[#FAF8F5] transition-colors">Overview</a>
+              </li>
+              <li>
+                <a href="#care-programs" className="hover:text-[#FAF8F5] transition-colors">Care Programs</a>
+              </li>
+              <li>
+                <a href="#heritage" className="hover:text-[#FAF8F5] transition-colors">Our Founders</a>
+              </li>
+              <li>
+                <a href="#residences" className="hover:text-[#FAF8F5] transition-colors">Rooms & Living</a>
+              </li>
+              <li>
+                <a href="#experience" className="hover:text-[#FAF8F5] transition-colors">Daily Life</a>
+              </li>
+              <li>
+                <a href="#gallery" className="hover:text-[#FAF8F5] transition-colors">Photo Gallery</a>
+              </li>
+            </ul>
           </div>
 
-          <div className="flex items-center gap-2.5 text-xs text-[#C8BCAC]">
-            <Clock className="w-4 h-4 text-[#9B8258] flex-shrink-0" />
-            <span>Visiting: 9:00 AM – 8:00 PM Daily</span>
+          {/* Column 3: Admissions & Actions */}
+          <div className="lg:col-span-2 space-y-3">
+            <span className="text-[11px] uppercase tracking-wider text-[#FAF8F5] block font-semibold">
+              Admissions
+            </span>
+            <ul className="space-y-2 text-xs text-[#BAC7C0]">
+              <li>
+                <a href="#admissions" className="hover:text-[#FAF8F5] transition-colors">Admissions Guide</a>
+              </li>
+              <li>
+                <a href="#standards" className="hover:text-[#FAF8F5] transition-colors">Provincial Standards</a>
+              </li>
+              <li>
+                <a href="#faqs" className="hover:text-[#FAF8F5] transition-colors">Common Questions</a>
+              </li>
+              <li>
+                <button onClick={onOpenAssessmentModal} className="hover:text-[#FAF8F5] transition-colors text-left">
+                  Care Needs Quiz
+                </button>
+              </li>
+              <li>
+                <button onClick={onOpenTourModal} className="text-[#FAF8F5] font-medium hover:underline text-left">
+                  Book a Visit
+                </button>
+              </li>
+            </ul>
           </div>
 
-          <div className="pt-2">
-            <a
-              href="https://maps.google.com/?q=36+Butter+Pot+Rd,+Holyrood,+NL+A0A+2R0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-[#9B8258] hover:text-white transition-colors font-semibold"
-            >
-              <span>Open in Google Maps</span>
-            </a>
+          {/* Column 4: Contact Info */}
+          <div className="lg:col-span-3 space-y-3">
+            <span className="text-[11px] uppercase tracking-wider text-[#FAF8F5] block font-semibold">
+              Contact & Location
+            </span>
+
+            <div className="flex items-start gap-2.5 text-xs text-[#BAC7C0]">
+              <MapPin className="w-4 h-4 text-[#8C705B] flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="font-medium text-[#FAF8F5]">{BUSINESS_INFO.name}</p>
+                <p>{BUSINESS_INFO.location.address}</p>
+                <p>{BUSINESS_INFO.location.town}, NL {BUSINESS_INFO.location.postalCode}</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2.5 text-xs text-[#BAC7C0]">
+              <Phone className="w-4 h-4 text-[#8C705B] flex-shrink-0" />
+              <a href={`tel:${BUSINESS_INFO.contact.phone}`} className="hover:text-[#FAF8F5] font-medium text-[#FAF8F5]">
+                {BUSINESS_INFO.contact.phone}
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2.5 text-xs text-[#BAC7C0]">
+              <Clock className="w-4 h-4 text-[#8C705B] flex-shrink-0" />
+              <span>Visiting: 9:00 AM – 8:00 PM Daily</span>
+            </div>
           </div>
+
         </div>
-      </div>
 
-      {/* Bottom Row */}
-      <div className="footer-bottom-copyright-strip">
-        <div>
-          <p>© {new Date().getFullYear()} {BUSINESS_INFO.legalName}. All rights reserved.</p>
-          <p className="text-[11px] text-[#706456] mt-0.5">
-            Licensed Personal Care Home under the Department of Health and Community Services, Newfoundland & Labrador.
-          </p>
+        {/* Bottom Row */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#BAC7C0] font-light">
+          <div>
+            <p>© {new Date().getFullYear()} {BUSINESS_INFO.legalName}. All rights reserved.</p>
+            <p className="text-[11px] text-[#BAC7C0]/70 mt-0.5">
+              A licensed 17-bed community care home in Holyrood, Newfoundland & Labrador.
+            </p>
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-[#FAF8F5] hover:text-[#8C705B] transition-colors"
+            id="footer-back-to-top-btn"
+          >
+            <span>Back to Top</span>
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
         </div>
 
-        <button
-          onClick={scrollToTop}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-[#C8BCAC] hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-full border border-white/10"
-          id="footer-back-to-top-btn"
-        >
-          <span>Back to Top</span>
-          <ArrowUp className="w-3.5 h-3.5" />
-        </button>
       </div>
     </footer>
   );
 };
+

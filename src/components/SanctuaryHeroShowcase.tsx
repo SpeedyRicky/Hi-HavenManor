@@ -1,6 +1,6 @@
 import React from 'react';
-import { Calendar, Phone, ArrowRight, ShieldCheck, Heart, Sparkles, MapPin } from 'lucide-react';
-import { BUSINESS_INFO } from '../data/hiHavenData';
+import { Calendar, Phone, ArrowDown, ShieldCheck, Heart, Users, MapPin, CheckCircle2 } from 'lucide-react';
+import { BUSINESS_INFO, CORE_PILLARS } from '../data/hiHavenData';
 
 interface SanctuaryHeroShowcaseProps {
   onOpenTourModal: () => void;
@@ -11,114 +11,143 @@ export const SanctuaryHeroShowcase: React.FC<SanctuaryHeroShowcaseProps> = ({
   onOpenTourModal,
   onOpenAssessmentModal,
 }) => {
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="sanctuary-showcase-wrapper" id="sanctuary" aria-labelledby="sanctuary-hero-heading">
-      <div className="sanctuary-showcase-grid-layout">
-        {/* Left Column: Narrative & High Impact Typography */}
-        <div className="flex flex-col justify-center">
-          <div className="sanctuary-badge-eyebrow" id="hero-accreditation-pill">
-            <ShieldCheck className="w-4 h-4 text-[#78623A]" />
-            <span>EST. 2004 • HOLYROOD, NEWFOUNDLAND & LABRADOR</span>
-          </div>
-
-          <h1 className="sanctuary-primary-display-title" id="sanctuary-hero-heading">
-            A sanctuary of <em>dignity</em>, compassionate care, and tranquil living.
-          </h1>
-
-          <p className="sanctuary-lead-narrative-paragraph">
-            Nestled beneath the majestic forested hills of Butter Pot in Holyrood, <strong>Hi Haven Manor</strong> has provided over two decades of accredited personal care, specialized mental health residential support, and warm Newfoundland hospitality.
-          </p>
-
-          {/* Action CTAs */}
-          <div className="sanctuary-actions-button-row">
-            <button
-              onClick={onOpenTourModal}
-              className="luxury-button-primary"
-              id="hero-schedule-visit-btn"
-            >
-              <Calendar className="w-4 h-4 text-[#9B8258]" />
-              <span>Schedule a Private Visit</span>
-            </button>
-
-            <button
-              onClick={onOpenAssessmentModal}
-              className="luxury-button-secondary"
-              id="hero-care-needs-assessment-btn"
-            >
-              <span>Care Needs Assessment</span>
-              <ArrowRight className="w-4 h-4 text-[#78623A]" />
-            </button>
-
-            <a
-              href={`tel:${BUSINESS_INFO.contact.phone}`}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#171E1C] hover:text-[#78623A] px-3 py-2 transition-colors"
-              id="hero-call-direct-link"
-            >
-              <Phone className="w-4 h-4 text-[#78623A]" />
-              <span>{BUSINESS_INFO.contact.phone}</span>
-            </a>
-          </div>
-
-          {/* Real Metrics Strip */}
-          <div className="sanctuary-core-metrics-strip" id="hero-metrics-strip">
-            <div className="metric-card-single-item">
-              <span className="metric-number-display">20+</span>
-              <span className="metric-description-label">Years of compassionate care in Newfoundland</span>
-            </div>
-
-            <div className="metric-card-single-item">
-              <span className="metric-number-display">24/7</span>
-              <span className="metric-description-label">Dedicated Personal Care Attendants on-site</span>
-            </div>
-
-            <div className="metric-card-single-item">
-              <span className="metric-number-display">L1 & L2</span>
-              <span className="metric-description-label">Provincially licensed personal care standards</span>
-            </div>
-
-            <div className="metric-card-single-item">
-              <span className="metric-number-display">100%</span>
-              <span className="metric-description-label">Screened & certified care attendants</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Cinematic Photography & Floating Badges */}
-        <div className="cinematic-visual-frame-container">
-          <div className="cinematic-main-photo-frame">
-            <img
-              src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80"
-              alt="Caregiver holding resident's hand with warm sunlight and dignity at Hi Haven"
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#141B18]/70 via-transparent to-transparent"></div>
-            
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <span className="text-xs uppercase tracking-widest text-[#D3C9BD] font-semibold flex items-center gap-1.5 mb-1">
-                <MapPin className="w-3.5 h-3.5 text-[#9B8258]" />
-                36 Butter Pot Road, Holyrood
+    <section className="relative bg-[#FAF8F5] pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 border-b border-[#E5DFC5]" id="sanctuary" aria-labelledby="sanctuary-hero-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Narrative & High Impact Editorial Typography */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <div className="mb-4 flex items-center gap-3">
+              <span className="text-[11px] uppercase tracking-[0.3em] text-[#5F6B65] font-semibold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#233B31]"></span>
+                COMMUNITY CARE • HOLYROOD, NEWFOUNDLAND
               </span>
-              <p className="text-base sm:text-lg font-serif font-light text-[#FAF7F2]">
-                "A true home where every resident is known, valued, and sheltered with love."
-              </p>
+            </div>
+
+            <h1 className="text-4xl sm:text-6xl lg:text-[68px] leading-[1.05] font-serif text-[#1C2622] font-normal mb-6 tracking-tight" id="sanctuary-hero-heading">
+              A place to feel at home.
+            </h1>
+
+            <p className="text-[#5F6B65] text-base sm:text-lg leading-relaxed mb-8 max-w-2xl font-light">
+              <strong>Hi Haven Manor</strong> is a 17-bed community care home in Holyrood providing a supportive, respectful residential environment for individuals living with mental health and addiction-related challenges, as well as those needing daily personal care.
+            </p>
+
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-12">
+              <button
+                onClick={onOpenTourModal}
+                className="bg-[#233B31] text-[#FAF8F5] px-7 py-3.5 text-xs uppercase tracking-[0.15em] font-medium hover:bg-[#1A2E26] transition-colors shadow-sm flex items-center gap-2"
+                id="hero-schedule-visit-btn"
+              >
+                <Calendar className="w-4 h-4 text-[#D5CEBF]" />
+                <span>Arrange a Visit</span>
+              </button>
+
+              <button
+                onClick={() => scrollToSection('about')}
+                className="px-6 py-3.5 border border-[#233B31] text-[#233B31] text-xs uppercase tracking-[0.15em] font-medium hover:bg-[#233B31] hover:text-white transition-colors"
+                id="hero-learn-more-btn"
+              >
+                Learn About Hi Haven
+              </button>
+
+              <a
+                href={`tel:${BUSINESS_INFO.contact.phone}`}
+                className="text-xs uppercase tracking-wider text-[#5F6B65] hover:text-[#1C2622] flex items-center gap-1.5 py-2 font-medium"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#233B31]" />
+                <span>{BUSINESS_INFO.contact.phone}</span>
+              </a>
+            </div>
+
+            {/* Reassuring Note */}
+            <div className="pt-6 border-t border-[#E5DFC5] flex flex-wrap items-center gap-6 text-xs text-[#5F6B65]">
+              <span className="flex items-center gap-1.5 font-medium text-[#1C2622]">
+                <ShieldCheck className="w-4 h-4 text-[#233B31]" />
+                Provincially Licensed Home
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5">
+                <Users className="w-4 h-4 text-[#233B31]" />
+                17-Bed Intimate Setting
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5">
+                <Heart className="w-4 h-4 text-[#8C705B]" />
+                Lori & Rob Condon, Founders
+              </span>
             </div>
           </div>
 
-          {/* Floating Accreditation Badge */}
-          <div className="floating-accreditation-seal-badge" id="hero-floating-accreditation-badge">
-            <div className="w-10 h-10 rounded-full bg-[#9B8258]/20 flex items-center justify-center flex-shrink-0 text-[#9B8258]">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#9B8258]">Licensed Facility</p>
-              <p className="text-xs text-[#D8CFC3] mt-0.5 leading-snug">
-                Provincial Personal Care Home Standards • Government of NL
-              </p>
+          {/* Right Column: Warm Visual Composition */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative mx-auto max-w-md lg:max-w-none">
+              {/* Main Photo Frame */}
+              <div className="relative overflow-hidden rounded-md border border-[#E5DFC5] bg-[#FAF8F5] shadow-md aspect-[4/5]">
+                <img
+                  src="https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=1200&q=80"
+                  alt="Scenic natural peaceful setting of Holyrood, Newfoundland near Butter Pot"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C2622]/70 via-[#1C2622]/10 to-transparent"></div>
+                
+                {/* Photo Annotation Overlay */}
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#D5CEBF] font-semibold flex items-center gap-1.5 mb-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#B5A493]" />
+                    36 Butter Pot Road • Holyrood, NL
+                  </span>
+                  <p className="text-sm font-serif italic text-[#FAF8F5]">
+                    "A calm, natural setting where you are treated with dignity, kindness, and respect."
+                  </p>
+                </div>
+              </div>
+
+              {/* Floating Reassurance Badge */}
+              <div className="absolute -bottom-6 -left-4 sm:-left-8 bg-white p-5 sm:p-6 shadow-md border border-[#E5DFC5] max-w-[240px] rounded-sm">
+                <div className="flex items-center gap-2 mb-1 text-[#233B31]">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider">A Genuine Home</span>
+                </div>
+                <p className="text-xs text-[#5F6B65] leading-relaxed">
+                  Home-cooked meals, private and semi-private rooms, and 24/7 caring staff.
+                </p>
+              </div>
             </div>
           </div>
+
         </div>
+
+        {/* 4 Core Community Pillars Row */}
+        <div className="mt-16 sm:mt-20 pt-12 border-t border-[#E5DFC5] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {CORE_PILLARS.map((pillar) => (
+            <div key={pillar.number} className="bg-white p-6 border border-[#E5DFC5] flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-serif text-[#8C705B] block mb-2 font-medium">
+                  {pillar.number}
+                </span>
+                <h3 className="font-serif text-lg font-normal text-[#1C2622] mb-2">
+                  {pillar.title}
+                </h3>
+                <p className="text-xs text-[#5F6B65] leading-relaxed font-light">
+                  {pillar.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
 };
+

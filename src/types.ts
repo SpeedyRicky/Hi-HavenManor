@@ -1,11 +1,11 @@
 export interface CareProgram {
   id: string;
-  category: 'personal-care' | 'mental-health' | 'respite' | 'living-support';
+  category: 'mental-health' | 'personal-care' | 'recovery-support' | 'living-support';
   title: string;
   shortDescription: string;
   fullDescription: string;
   eligibility: string;
-  careLevel: 'Level 1' | 'Level 2' | 'Specialized Supportive Care' | 'Short-Term Respite';
+  careLevel: 'Mental Health & Recovery Support' | 'Level 1 & 2 Personal Care' | 'Life Skills & Respite' | 'Nutrition & Wellness';
   highlights: string[];
   keyFeatures: string[];
   staffingRatio: string;
@@ -16,16 +16,14 @@ export interface CareProgram {
 export interface ResidenceSuite {
   id: string;
   name: string;
-  tier: 'Private Sanctuary Suite' | 'Comfort Single Suite' | 'Companion Shared Suite';
+  tier: 'Private Bedroom' | 'Semi-Private Room' | 'Communal Living Space';
   tagline: string;
-  squareFeet: string;
   view: string;
   description: string;
   amenities: string[];
   safetyFeatures: string[];
   image: string;
   imageAlt: string;
-  floorPlanDetails: string;
 }
 
 export interface DailyActivitySlot {
@@ -33,14 +31,14 @@ export interface DailyActivitySlot {
   period: 'Morning' | 'Midday' | 'Afternoon' | 'Evening';
   title: string;
   description: string;
-  category: 'Wellness & Movement' | 'Culinary Gathering' | 'Cognitive & Creative' | 'Social & Leisure';
+  category: 'Morning Routine & Wellness' | 'Home-Cooked Meals' | 'Life Skills & Community' | 'Rest & Social Connection';
   iconName: string;
 }
 
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'grounds' | 'suites' | 'dining' | 'lifestyle' | 'care';
+  category: 'home' | 'rooms' | 'dining' | 'grounds' | 'care';
   categoryLabel: string;
   caption: string;
   imageUrl: string;
@@ -79,3 +77,4 @@ export interface TourBookingRequest {
   interestedCareProgram: string;
   specificQuestions: string;
 }
+

@@ -14,95 +14,106 @@ export const DailyLifeTimeline: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Coffee':
-        return <Coffee className="w-5 h-5" />;
+        return <Coffee className="w-4 h-4 text-[#233B31]" />;
       case 'Trees':
-        return <Trees className="w-5 h-5" />;
+        return <Trees className="w-4 h-4 text-[#233B31]" />;
       case 'Utensils':
-        return <Utensils className="w-5 h-5" />;
+        return <Utensils className="w-4 h-4 text-[#233B31]" />;
       case 'Palette':
-        return <Palette className="w-5 h-5" />;
+        return <Palette className="w-4 h-4 text-[#233B31]" />;
       case 'HeartHandshake':
-        return <HeartHandshake className="w-5 h-5" />;
+        return <HeartHandshake className="w-4 h-4 text-[#233B31]" />;
       case 'Sparkles':
-        return <Sparkles className="w-5 h-5" />;
+        return <Sparkles className="w-4 h-4 text-[#233B31]" />;
       case 'Tv':
-        return <Tv className="w-5 h-5" />;
+        return <Tv className="w-4 h-4 text-[#233B31]" />;
       default:
-        return <Clock className="w-5 h-5" />;
+        return <Clock className="w-4 h-4 text-[#233B31]" />;
     }
   };
 
   return (
-    <section className="daily-experience-section-wrapper" id="experience" aria-labelledby="experience-heading">
-      <div className="section-editorial-header-block">
-        <span className="section-eyebrow-accent-label">The Daily Rhythm</span>
-        <h2 className="section-display-heading" id="experience-heading">
-          A Purposeful, Engaging Daily Journey
-        </h2>
-        <p className="section-lead-explanation">
-          Structure and spontaneity coexist harmoniously at Hi Haven. Our daily calendar nurtures physical vitality, cognitive engagement, wholesome nutrition, and warm social connection.
-        </p>
-      </div>
+    <section className="py-20 sm:py-24 bg-[#FAF8F5] border-b border-[#E5DFC5]" id="experience" aria-labelledby="experience-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-[11px] uppercase tracking-[0.3em] text-[#5F6B65] font-semibold">
+              DAILY LIFE & ROUTINE
+            </span>
+            <div className="h-[1px] w-8 bg-[#233B31]"></div>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1C2622] leading-[1.1] mb-4" id="experience-heading">
+            Structure, comfort, and peaceful daily rhythm.
+          </h2>
+          <p className="text-sm sm:text-base text-[#5F6B65] leading-relaxed font-light">
+            A predictable, supportive routine is essential for recovery, mental wellness, and peace of mind. Residents enjoy balanced home-cooked meals, quiet personal time, and optional group activities.
+          </p>
+        </div>
 
-      {/* Period Filter Buttons */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
-        {periods.map((p) => (
-          <button
-            key={p}
-            onClick={() => setSelectedPeriod(p)}
-            className={`px-4 py-1.5 text-xs font-semibold rounded-full border transition-all ${
-              selectedPeriod === p
-                ? 'bg-[#171E1C] text-white border-[#171E1C] shadow-sm'
-                : 'bg-white text-[#55645D] border-[#9B8258]/30 hover:border-[#78623A]'
-            }`}
-          >
-            {p === 'All' ? 'Full Day Rhythm' : p}
-          </button>
-        ))}
-      </div>
+        {/* Period Filter Buttons */}
+        <div className="flex flex-wrap items-center gap-2 mb-10">
+          {periods.map((p) => (
+            <button
+              key={p}
+              onClick={() => setSelectedPeriod(p)}
+              className={`px-4 py-2 text-[11px] uppercase tracking-wider font-medium transition-colors ${
+                selectedPeriod === p
+                  ? 'bg-[#233B31] text-[#FAF8F5]'
+                  : 'bg-white text-[#5F6B65] border border-[#E5DFC5] hover:border-[#233B31] hover:text-[#1C2622]'
+              }`}
+            >
+              {p === 'All' ? 'Full Day Schedule' : p}
+            </button>
+          ))}
+        </div>
 
-      {/* Schedule Items List */}
-      <div className="daily-schedule-timeline-grid">
-        {filteredSlots.map((slot, index) => (
-          <div
-            key={index}
-            className="daily-slot-card-item"
-            id={`schedule-slot-${index}`}
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-[#F4EFE8] text-[#78623A] flex items-center justify-center flex-shrink-0 border border-[#9B8258]/20">
-                {getIcon(slot.iconName)}
-              </div>
-
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#78623A] bg-[#F4EFE8] px-2 py-0.5 rounded">
-                    {slot.category}
-                  </span>
-                  <span className="text-xs text-[#8C7E6F] font-medium">
-                    {slot.period}
-                  </span>
+        {/* Schedule Items List */}
+        <div className="space-y-4">
+          {filteredSlots.map((slot, index) => (
+            <div
+              key={index}
+              className="bg-white p-5 sm:p-6 border border-[#E5DFC5] flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all hover:border-[#233B31]/50"
+              id={`schedule-slot-${index}`}
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 bg-[#FAF8F5] flex items-center justify-center flex-shrink-0 border border-[#E5DFC5] rounded-xs">
+                  {getIcon(slot.iconName)}
                 </div>
 
-                <h3 className="font-serif text-lg font-bold text-[#171E1C]">
-                  {slot.title}
-                </h3>
+                <div>
+                  <div className="flex items-center gap-3 mb-1">
+                    <span className="text-[10px] font-semibold uppercase tracking-wider text-[#233B31]">
+                      {slot.category}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider text-[#8C9993]">
+                      • {slot.period}
+                    </span>
+                  </div>
 
-                <p className="text-xs sm:text-sm text-[#55645D] mt-1 max-w-2xl leading-relaxed">
-                  {slot.description}
-                </p>
+                  <h3 className="font-serif text-lg font-normal text-[#1C2622]">
+                    {slot.title}
+                  </h3>
+
+                  <p className="text-xs text-[#5F6B65] mt-1 max-w-2xl leading-relaxed font-light">
+                    {slot.description}
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-left md:text-right flex-shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-[#E5DFC5]">
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-[#1C2622] bg-[#FAF8F5] px-3 py-1.5 border border-[#E5DFC5]">
+                  <Clock className="w-3.5 h-3.5 text-[#233B31]" />
+                  {slot.time}
+                </span>
               </div>
             </div>
+          ))}
+        </div>
 
-            <div className="text-left md:text-right flex-shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-[#E8E0D5]">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#171E1C] bg-[#FAF7F2] px-3 py-1.5 rounded-full border border-[#9B8258]/30">
-                <Clock className="w-3.5 h-3.5 text-[#78623A]" />
-                {slot.time}
-              </span>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );
 };
+

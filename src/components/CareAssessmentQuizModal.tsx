@@ -36,24 +36,24 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
   const getRecommendation = () => {
     if (answers.careType === 'mental-health') {
       return {
-        title: 'Specialized Mental Health & Recovery Living',
-        careLevel: 'Specialized Supportive Care',
-        summary: 'Hi Haven provides structured, trauma-informed psychosocial routines, 24/7 dedicated attendants, and tranquil Holyrood woodland surroundings.',
-        nextStep: 'We recommend coordinating with your NL Health regional case manager or contacting Lori & Rob Condon directly for a private consultation.'
+        title: 'Supportive Mental Health & Addiction Recovery Living',
+        careLevel: 'Specialized Residential Care',
+        summary: 'Hi Haven provides structured daily routines, 24/7 caring attendants, nutritious meals, and a calm Holyrood setting that respects individuality and promotes dignity.',
+        nextStep: 'We recommend coordinating with your NL Health Services regional case manager or contacting Lori & Rob Condon directly for a confidential conversation.'
       };
     } else if (answers.careType === 'respite') {
       return {
-        title: 'Short-Term Respite Sanctuary Stay',
-        careLevel: 'Short-Term Respite',
-        summary: 'Fully furnished private suite, 3 home-cooked meals daily, and complete 24/7 personal care assistance for temporary rest and peace of mind.',
-        nextStep: 'Respite availability is managed on a rolling basis. Contact our admissions line to hold a suite for your preferred dates.'
+        title: 'Short-Term Respite Care Stay',
+        careLevel: 'Short-Term Community Care',
+        summary: 'Fully furnished private bedroom, 3 home-cooked meals daily, and complete 24/7 personal care assistance for temporary family caregiver relief or recovery.',
+        nextStep: 'Respite availability is managed on a rolling basis. Call us directly to check suite availability for your preferred dates.'
       };
     } else {
       return {
-        title: 'Level 1 & Level 2 Personal Care Home Program',
-        careLevel: 'Level 1 / Level 2 Provincial Standard',
-        summary: 'Comprehensive assistance with activities of daily living (bathing, dressing, grooming, mobility), dietitian-approved meals, and supervised medication administration.',
-        nextStep: 'Hi Haven is fully licensed under Provincial Personal Care Home Operational Standards and accommodates both private and subsidized placements.'
+        title: 'Level 1 & Level 2 Personal Care Home Living',
+        careLevel: 'Level 1 & 2 Provincial Care Home Standards',
+        summary: 'Comprehensive assistance with daily living (bathing, dressing, grooming, mobility), home-cooked meals, daily laundry/housekeeping, and 24/7 supervised medication administration.',
+        nextStep: 'Hi Haven accommodates both privately funded placements and government-subsidized residents through Newfoundland and Labrador Health Services.'
       };
     }
   };
@@ -61,25 +61,25 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
   const rec = getRecommendation();
 
   return (
-    <div className="fixed inset-0 bg-[#121715]/85 backdrop-blur-md z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
-      <div className="bg-[#FAF7F2] rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto border border-[#9B8258]/30 shadow-2xl p-6 sm:p-8 relative">
+    <div className="fixed inset-0 bg-[#1C2622]/80 backdrop-blur-xs z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
+      <div className="bg-[#FAF8F5] max-w-xl w-full max-h-[90vh] overflow-y-auto border border-[#E5DFC5] shadow-xl p-6 sm:p-8 relative">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 text-[#55645D] hover:text-[#171E1C] transition-colors"
+          className="absolute top-5 right-5 p-2 text-[#5F6B65] hover:text-[#1C2622] transition-colors"
           aria-label="Close quiz"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5" />
         </button>
 
         {/* Progress Bar */}
         <div className="mb-6">
-          <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#78623A] mb-2">
-            <span>Care Needs Assessment</span>
+          <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#233B31] mb-2">
+            <span>Care Needs Quiz</span>
             <span>Step {currentStep} of 4</span>
           </div>
-          <div className="w-full h-1.5 bg-[#E8E0D5] rounded-full overflow-hidden">
+          <div className="w-full h-1.5 bg-[#E5DFC5] overflow-hidden">
             <div
-              className="h-full bg-[#78623A] transition-all duration-300"
+              className="h-full bg-[#233B31] transition-all duration-300"
               style={{ width: `${(currentStep / 4) * 100}%` }}
             />
           </div>
@@ -88,47 +88,47 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
         {/* Step 1: Primary Need */}
         {currentStep === 1 && (
           <div>
-            <h3 className="font-serif text-2xl font-bold text-[#171E1C] mb-2">
+            <h3 className="font-serif text-2xl font-normal text-[#1C2622] mb-2">
               What is the primary support need?
             </h3>
-            <p className="text-xs text-[#55645D] mb-6">
-              Select the description that best reflects your loved one's current daily situation.
+            <p className="text-xs text-[#5F6B65] mb-6 font-light">
+              Select the option that best reflects your loved one's current daily situation.
             </p>
 
             <div className="space-y-3">
               {[
                 {
                   id: 'personal-care',
-                  title: 'Daily Living & Personal Care Assistance',
-                  desc: 'Help needed with grooming, bathing, medication, or mobility while enjoying senior living community.'
+                  title: 'Daily Living & Personal Care (Level 1 & 2)',
+                  desc: 'Assistance needed with grooming, bathing, medication, or mobility while living in a supportive home setting.'
                 },
                 {
                   id: 'mental-health',
-                  title: 'Supportive Mental Health & Recovery Living',
-                  desc: 'Structured, calm residential environment specializing in adult mental wellness and routine stability.'
+                  title: 'Mental Health & Addiction Recovery Support',
+                  desc: 'A calm, supportive 17-bed home offering structured daily routines, community belonging, and compassionate care.'
                 },
                 {
                   id: 'respite',
-                  title: 'Short-Term Respite or Recovery Stay',
-                  desc: 'Temporary stay (days to weeks) for family caregiver relief or post-hospital recovery.'
+                  title: 'Short-Term Respite Care Stay',
+                  desc: 'Temporary stay (days to weeks) for family caregiver relief or post-procedure recovery.'
                 }
               ].map((opt) => (
                 <div
                   key={opt.id}
                   onClick={() => setAnswers({ ...answers, careType: opt.id })}
-                  className={`p-4 rounded-xl border cursor-pointer transition-all ${
+                  className={`p-4 border cursor-pointer transition-all ${
                     answers.careType === opt.id
-                      ? 'bg-white border-[#78623A] shadow-md ring-1 ring-[#78623A]'
-                      : 'bg-white/60 border-[#E8E0D5] hover:bg-white'
+                      ? 'bg-white border-[#233B31] shadow-xs'
+                      : 'bg-white/60 border-[#E5DFC5] hover:bg-white'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-bold text-[#171E1C]">{opt.title}</h4>
+                    <h4 className="text-sm font-semibold text-[#1C2622]">{opt.title}</h4>
                     {answers.careType === opt.id && (
-                      <CheckCircle className="w-4 h-4 text-[#78623A]" />
+                      <CheckCircle className="w-4 h-4 text-[#233B31]" />
                     )}
                   </div>
-                  <p className="text-xs text-[#55645D] mt-1">{opt.desc}</p>
+                  <p className="text-xs text-[#5F6B65] mt-1 font-light">{opt.desc}</p>
                 </div>
               ))}
             </div>
@@ -138,11 +138,11 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
         {/* Step 2: Mobility */}
         {currentStep === 2 && (
           <div>
-            <h3 className="font-serif text-2xl font-bold text-[#171E1C] mb-2">
+            <h3 className="font-serif text-2xl font-normal text-[#1C2622] mb-2">
               What is the current mobility level?
             </h3>
-            <p className="text-xs text-[#55645D] mb-6">
-              All suites and public areas at Hi Haven are fully barrier-free.
+            <p className="text-xs text-[#5F6B65] mb-6 font-light">
+              All resident bedrooms, dining, and living areas at Hi Haven are ground-level and accessible.
             </p>
 
             <div className="space-y-3">
@@ -150,35 +150,35 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
                 {
                   id: 'independent',
                   title: 'Fully Independent Walking',
-                  desc: 'Walks without assistance, enjoys outdoor garden pathways and strolls.'
+                  desc: 'Walks freely indoors and enjoys walking on our grounds.'
                 },
                 {
                   id: 'walker-assisted',
-                  title: 'Assisted by Cane or Rollator / Walker',
-                  desc: 'Requires steadying aids or minimal staff standby when navigating spaces.'
+                  title: 'Uses Cane or Walker / Rollator',
+                  desc: 'Requires steadying aids or minimal staff standby when navigating the home.'
                 },
                 {
                   id: 'wheelchair',
                   title: 'Wheelchair / Seated Mobility Support',
-                  desc: 'Uses wheelchair with wide doorways, roll-in showers, and ramped access.'
+                  desc: 'Uses wheelchair with wide doorways, level thresholds, and accessible showers.'
                 }
               ].map((opt) => (
                 <div
                   key={opt.id}
                   onClick={() => setAnswers({ ...answers, mobility: opt.id })}
-                  className={`p-4 rounded-xl border cursor-pointer transition-all ${
-                    answers.mobility === opt.id
-                      ? 'bg-white border-[#78623A] shadow-md ring-1 ring-[#78623A]'
-                      : 'bg-white/60 border-[#E8E0D5] hover:bg-white'
+                  className={`p-4 border cursor-pointer transition-all ${
+                    answers.careType === opt.id
+                      ? 'bg-white border-[#233B31] shadow-xs'
+                      : 'bg-white/60 border-[#E5DFC5] hover:bg-white'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-bold text-[#171E1C]">{opt.title}</h4>
+                    <h4 className="text-sm font-semibold text-[#1C2622]">{opt.title}</h4>
                     {answers.mobility === opt.id && (
-                      <CheckCircle className="w-4 h-4 text-[#78623A]" />
+                      <CheckCircle className="w-4 h-4 text-[#233B31]" />
                     )}
                   </div>
-                  <p className="text-xs text-[#55645D] mt-1">{opt.desc}</p>
+                  <p className="text-xs text-[#5F6B65] mt-1 font-light">{opt.desc}</p>
                 </div>
               ))}
             </div>
@@ -188,11 +188,11 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
         {/* Step 3: Medication & Supervision */}
         {currentStep === 3 && (
           <div>
-            <h3 className="font-serif text-2xl font-bold text-[#171E1C] mb-2">
-              What medication oversight is required?
+            <h3 className="font-serif text-2xl font-normal text-[#1C2622] mb-2">
+              What medication support is required?
             </h3>
-            <p className="text-xs text-[#55645D] mb-6">
-              Our Personal Care Attendants are trained and certified in standardized medication protocols.
+            <p className="text-xs text-[#5F6B65] mb-6 font-light">
+              Our Personal Care Attendants are trained and certified under provincial medication management standards.
             </p>
 
             <div className="space-y-3">
@@ -200,35 +200,35 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
                 {
                   id: 'full-administration',
                   title: '24/7 Supervised Medication Administration',
-                  desc: 'Secure lockup, logged distribution, and coordinated refills with pharmacy.'
+                  desc: 'Secure storage, logged distribution on schedule, and coordination with community pharmacy.'
                 },
                 {
                   id: 'reminders',
-                  title: 'Daily Medication Prompts & Reminders',
-                  desc: 'Resident manages self with staff checking schedules and meal timing.'
+                  title: 'Medication Prompts & Reminders',
+                  desc: 'Resident is self-directed with staff monitoring schedules and meal timing.'
                 },
                 {
                   id: 'specialized',
-                  title: 'Specialized Medical Nursing Liaison',
-                  desc: 'Coordination with visiting community nurses, blood clinics, or doctors.'
+                  title: 'Community Nursing Liaison Support',
+                  desc: 'Coordination with visiting community nurses, blood collection, or family physicians.'
                 }
               ].map((opt) => (
                 <div
                   key={opt.id}
                   onClick={() => setAnswers({ ...answers, medication: opt.id })}
-                  className={`p-4 rounded-xl border cursor-pointer transition-all ${
+                  className={`p-4 border cursor-pointer transition-all ${
                     answers.medication === opt.id
-                      ? 'bg-white border-[#78623A] shadow-md ring-1 ring-[#78623A]'
-                      : 'bg-white/60 border-[#E8E0D5] hover:bg-white'
+                      ? 'bg-white border-[#233B31] shadow-xs'
+                      : 'bg-white/60 border-[#E5DFC5] hover:bg-white'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-bold text-[#171E1C]">{opt.title}</h4>
+                    <h4 className="text-sm font-semibold text-[#1C2622]">{opt.title}</h4>
                     {answers.medication === opt.id && (
-                      <CheckCircle className="w-4 h-4 text-[#78623A]" />
+                      <CheckCircle className="w-4 h-4 text-[#233B31]" />
                     )}
                   </div>
-                  <p className="text-xs text-[#55645D] mt-1">{opt.desc}</p>
+                  <p className="text-xs text-[#5F6B65] mt-1 font-light">{opt.desc}</p>
                 </div>
               ))}
             </div>
@@ -239,25 +239,24 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
         {currentStep === 4 && (
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-[#9B8258]" />
-              <span className="text-xs font-bold uppercase tracking-widest text-[#78623A]">
-                Care Assessment Match
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#233B31]">
+                ASSESSMENT MATCH
               </span>
             </div>
 
-            <h3 className="font-serif text-2xl font-bold text-[#171E1C] mb-1">
+            <h3 className="font-serif text-2xl font-normal text-[#1C2622] mb-1">
               {rec.title}
             </h3>
-            <span className="inline-block text-xs font-semibold text-[#78623A] bg-[#F4EFE8] px-2.5 py-1 rounded border border-[#9B8258]/30 mb-4">
+            <span className="inline-block text-xs font-medium text-[#233B31] bg-[#F3EFEA] px-2.5 py-1 border border-[#E5DFC5] mb-4">
               {rec.careLevel}
             </span>
 
-            <div className="bg-white p-5 rounded-xl border border-[#9B8258]/20 space-y-3 mb-6">
-              <p className="text-xs sm:text-sm text-[#46554D] leading-relaxed">
+            <div className="bg-white p-5 border border-[#E5DFC5] space-y-3 mb-6">
+              <p className="text-xs sm:text-sm text-[#5F6B65] leading-relaxed font-light">
                 {rec.summary}
               </p>
-              <div className="p-3 bg-[#FAF7F2] rounded-lg border border-[#E8E0D5] text-xs text-[#384640]">
-                <strong className="block text-[#171E1C] font-semibold mb-0.5">Recommended Next Step:</strong>
+              <div className="p-3 bg-[#FAF8F5] border border-[#E5DFC5] text-xs text-[#5F6B65]">
+                <strong className="block text-[#1C2622] font-semibold mb-0.5">Recommended Next Step:</strong>
                 {rec.nextStep}
               </div>
             </div>
@@ -268,18 +267,18 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
                   onClose();
                   onOpenTourModal();
                 }}
-                className="luxury-button-gold w-full justify-center text-sm py-3"
+                className="bg-[#233B31] text-[#FAF8F5] w-full justify-center text-xs uppercase tracking-wider py-3.5 flex items-center gap-2 font-medium hover:bg-[#1A2E26] transition-colors"
               >
                 <Calendar className="w-4 h-4" />
-                <span>Book a Private Sanctuary Tour</span>
+                <span>Book a Home Visit with Lori & Rob</span>
               </button>
 
               <a
                 href={`tel:${BUSINESS_INFO.contact.phone}`}
-                className="luxury-button-secondary w-full justify-center text-xs py-2.5"
+                className="border border-[#233B31] text-[#233B31] w-full justify-center text-xs uppercase tracking-wider py-3 flex items-center gap-2 font-medium hover:bg-[#233B31] hover:text-[#FAF8F5] transition-colors text-center"
               >
-                <Phone className="w-4 h-4 text-[#78623A]" />
-                <span>Speak with Lori & Rob Condon: {BUSINESS_INFO.contact.phone}</span>
+                <Phone className="w-4 h-4" />
+                <span>Direct Line: {BUSINESS_INFO.contact.phone}</span>
               </a>
             </div>
           </div>
@@ -287,14 +286,14 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
 
         {/* Navigation Buttons */}
         {currentStep < 4 && (
-          <div className="flex items-center justify-between mt-8 pt-4 border-t border-[#E8E0D5]">
+          <div className="flex items-center justify-between mt-8 pt-4 border-t border-[#E5DFC5]">
             {currentStep > 1 ? (
               <button
                 onClick={handlePrev}
-                className="flex items-center gap-1.5 text-xs font-semibold text-[#55645D] hover:text-[#171E1C]"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#5F6B65] hover:text-[#1C2622]"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span>Previous Question</span>
+                <span>Previous</span>
               </button>
             ) : (
               <span />
@@ -302,10 +301,10 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
 
             <button
               onClick={handleNext}
-              className="luxury-button-primary text-xs py-2.5 px-5"
+              className="bg-[#233B31] text-[#FAF8F5] text-xs uppercase tracking-wider py-2.5 px-5 flex items-center gap-1.5 font-medium hover:bg-[#1A2E26] transition-colors"
             >
               <span>Continue</span>
-              <ArrowRight className="w-4 h-4 text-[#9B8258]" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         )}
@@ -313,3 +312,4 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
     </div>
   );
 };
+

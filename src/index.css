@@ -5,21 +5,27 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     
-    --color-sanctuary-ivory: #FAF7F2;
-    --color-sanctuary-cream: #F4EFE8;
-    --color-sanctuary-sand: #E8E0D5;
-    --color-sanctuary-taupe: #C6B9A8;
-    --color-sanctuary-warm-gold: #9B8258;
-    --color-sanctuary-deep-gold: #78623A;
-    --color-sanctuary-slate: #34403B;
-    --color-sanctuary-moss: #46554D;
-    --color-sanctuary-charcoal: #1C2320;
-    --color-sanctuary-noir: #111614;
+    --color-editorial-canvas: #FAF8F5;
+    --color-editorial-paper: #F3EFEA;
+    --color-editorial-card: #FFFFFF;
+    --color-editorial-border: #E5DFC5;
+    --color-editorial-border-subtle: #EBE5DC;
+    --color-editorial-border-light: rgba(229, 223, 213, 0.7);
+    --color-editorial-black: #1C2622;
+    --color-editorial-charcoal: #2A3631;
+    --color-editorial-gray: #5F6B65;
+    --color-editorial-muted: #8C9993;
+    --color-editorial-forest: #233B31;
+    --color-editorial-forest-dark: #1A2E26;
+    --color-editorial-forest-light: #3E5A4D;
+    --color-editorial-ocean: #4A6977;
+    --color-editorial-wood: #8C705B;
+    --color-editorial-warm-cream: #FBF9F6;
   }
 
   body {
-    background-color: var(--color-sanctuary-ivory);
-    color: var(--color-sanctuary-charcoal);
+    background-color: var(--color-editorial-canvas);
+    color: var(--color-editorial-black);
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
@@ -31,25 +37,26 @@
   }
 }
 
+
 /* ==========================================================================
-   SPECIFIC COMPONENT & LAYOUT STYLING CLASSES
+   EDITORIAL AESTHETIC COMPONENT & LAYOUT STYLING
    ========================================================================== */
 
 /* 1. TOP ADVISORY & CONTACT BANNER */
 .site-topbar-notice-bar {
-  background-color: #171E1C;
-  color: #D3C9BD;
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #1A1A1A;
+  color: #A8A39D;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(229, 225, 218, 0.15);
 }
 
 .site-topbar-content-container {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   display: flex;
@@ -61,37 +68,37 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  color: #E2D9CE;
+  color: #FDFCFB;
   transition: color 0.2s ease;
 }
 
 .site-topbar-contact-link:hover {
-  color: #FFFFFF;
+  color: #C5A059;
 }
 
-/* 2. LUXURY NAVIGATION HEADER */
+/* 2. EDITORIAL NAVIGATION HEADER */
 .luxury-site-header {
   position: sticky;
   top: 0;
   z-index: 50;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: rgba(250, 247, 242, 0.94);
+  background-color: rgba(253, 252, 251, 0.95);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .luxury-site-header.scrolled {
-  background-color: rgba(250, 247, 242, 0.98);
-  box-shadow: 0 10px 30px -10px rgba(28, 35, 32, 0.06);
+  background-color: rgba(253, 252, 251, 0.98);
+  box-shadow: 0 4px 20px -2px rgba(26, 26, 26, 0.04);
 }
 
 .luxury-navigation-container {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  height: 5.25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  height: 5.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,27 +112,28 @@
 
 .brand-identity-title {
   font-family: var(--font-serif);
-  font-size: 1.875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: #1A211E;
+  font-size: 1.75rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #1A1A1A;
   line-height: 1;
 }
 
 .brand-identity-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: #78623A;
-  margin-top: 0.25rem;
+  letter-spacing: 0.25em;
+  color: #706B63;
+  margin-top: 0.375rem;
   font-weight: 500;
 }
 
 .navigation-menu-links-list {
   display: none;
   align-items: center;
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
 @media (min-width: 1024px) {
@@ -135,10 +143,11 @@
 }
 
 .navigation-menu-item-link {
-  font-size: 0.875rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  color: #2F3B36;
+  color: #706B63;
   position: relative;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -146,7 +155,7 @@
 }
 
 .navigation-menu-item-link:hover {
-  color: #78623A;
+  color: #1A1A1A;
 }
 
 .navigation-menu-item-link::after {
@@ -155,8 +164,8 @@
   bottom: 0;
   left: 0;
   width: 0%;
-  height: 1.5px;
-  background-color: #9B8258;
+  height: 1px;
+  background-color: #1A1A1A;
   transition: width 0.3s ease;
 }
 
@@ -168,16 +177,16 @@
 .navigation-action-buttons-group {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-/* 3. SANCTUARY SHOWCASE / HERO LAYOUT */
+/* 3. SANCTUARY SHOWCASE / EDITORIAL HERO LAYOUT */
 .sanctuary-showcase-wrapper {
   position: relative;
-  background: linear-gradient(180deg, #FAF7F2 0%, #F3ECE2 100%);
-  padding-top: 3.5rem;
-  padding-bottom: 5.5rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.12);
+  background-color: #FDFCFB;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid #E5E1DA;
   overflow: hidden;
 }
 
@@ -185,75 +194,72 @@
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3.5rem;
+  gap: 4rem;
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .sanctuary-showcase-grid-layout {
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 4.5rem;
+    gap: 5rem;
   }
 }
 
 .sanctuary-badge-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
+  gap: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #78623A;
-  background-color: rgba(155, 130, 88, 0.1);
-  padding: 0.375rem 0.875rem;
-  border-radius: 9999px;
+  letter-spacing: 0.4em;
+  color: #C5A059;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(155, 130, 88, 0.2);
 }
 
 .sanctuary-primary-display-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
-  font-weight: 500;
-  line-height: 1.1;
-  color: #141B18;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2.5rem, 5.5vw, 4.75rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: #1A1A1A;
+  margin-bottom: 1.75rem;
   letter-spacing: -0.02em;
 }
 
 .sanctuary-primary-display-title em {
   font-style: italic;
-  font-weight: 400;
-  color: #78623A;
+  font-weight: 300;
+  color: #1A1A1A;
 }
 
 .sanctuary-lead-narrative-paragraph {
-  font-size: 1.125rem;
-  line-height: 1.7;
-  color: #425049;
-  margin-bottom: 2.25rem;
-  max-width: 40rem;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #706B63;
+  margin-bottom: 2.5rem;
+  max-width: 38rem;
+  font-weight: 300;
 }
 
 .sanctuary-actions-button-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .sanctuary-core-metrics-strip {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(155, 130, 88, 0.2);
+  gap: 2rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #E5E1DA;
 }
 
 @media (min-width: 640px) {
@@ -269,62 +275,63 @@
 
 .metric-number-display {
   font-family: var(--font-serif);
-  font-size: 2.25rem;
-  font-weight: 600;
-  color: #1A211E;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #1A1A1A;
   line-height: 1;
 }
 
 .metric-description-label {
-  font-size: 0.8125rem;
-  color: #5A6961;
-  margin-top: 0.375rem;
-  line-height: 1.35;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #A8A39D;
+  margin-top: 0.5rem;
+  line-height: 1.4;
 }
 
-/* 4. CINEMATIC VISUAL SHOWCASE FRAME */
+/* 4. CINEMATIC VISUAL SHOWCASE FRAME (ARCHED EDITORIAL HERO) */
 .cinematic-visual-frame-container {
   position: relative;
 }
 
 .cinematic-main-photo-frame {
   position: relative;
-  border-radius: 1rem;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(28, 35, 32, 0.15);
-  border: 1px solid rgba(155, 130, 88, 0.2);
-  background-color: #E2D9CE;
+  background-color: #E5E1DA;
+  border: 1px solid #E5E1DA;
 }
 
 .cinematic-main-photo-frame img {
   width: 100%;
-  height: 480px;
+  height: 520px;
   object-fit: cover;
   display: block;
 }
 
 .floating-accreditation-seal-badge {
   position: absolute;
-  bottom: -1.25rem;
-  right: -1rem;
-  background-color: #171E1C;
-  color: #FAF7F2;
-  padding: 1.25rem 1.5rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(155, 130, 88, 0.3);
-  max-width: 260px;
-  display: flex;
-  gap: 0.875rem;
-  align-items: flex-start;
+  bottom: 2rem;
+  left: -2rem;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid #E5E1DA;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 250px;
+  z-index: 20;
 }
 
 /* 5. CARE ADVISOR / SELECTOR WIDGET */
 .care-advisor-interactive-section {
-  background-color: #F4EFE8;
-  padding-top: 5rem;
-  padding-bottom: 5.5rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #F7F5F0;
+  padding-top: 6rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .section-editorial-header-block {
@@ -332,75 +339,73 @@
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3.75rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
 .section-eyebrow-accent-label {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #78623A;
+  letter-spacing: 0.4em;
+  color: #C5A059;
   margin-bottom: 0.75rem;
-  display: block;
+  display: inline-block;
 }
 
 .section-display-heading {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 500;
-  color: #151C1A;
-  line-height: 1.15;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 400;
+  color: #1A1A1A;
+  line-height: 1.1;
   margin-bottom: 1rem;
 }
 
 .section-lead-explanation {
-  font-size: 1.0625rem;
-  color: #55645D;
-  line-height: 1.6;
+  font-size: 1rem;
+  color: #706B63;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 .care-tabs-navigation-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   margin-bottom: 2.5rem;
 }
 
 .care-tab-pill-button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  background-color: #FAF7F2;
-  color: #384640;
-  border: 1px solid rgba(155, 130, 88, 0.2);
+  background-color: #FFFFFF;
+  color: #706B63;
+  border: 1px solid #E5E1DA;
   transition: all 0.25s ease;
   cursor: pointer;
+  border-radius: 0;
 }
 
 .care-tab-pill-button:hover {
-  background-color: #EFE8DD;
-  color: #171E1C;
-  border-color: rgba(155, 130, 88, 0.4);
+  color: #1A1A1A;
+  border-color: #1A1A1A;
 }
 
 .care-tab-pill-button.active {
-  background-color: #1C2320;
-  color: #FAF7F2;
-  border-color: #1C2320;
-  box-shadow: 0 4px 14px rgba(28, 35, 32, 0.15);
+  background-color: #1A1A1A;
+  color: #FDFCFB;
+  border-color: #1A1A1A;
 }
 
 .care-program-detail-card-panel {
   background-color: #FFFFFF;
-  border-radius: 1rem;
-  border: 1px solid rgba(155, 130, 88, 0.18);
-  box-shadow: 0 10px 30px rgba(28, 35, 32, 0.04);
+  border: 1px solid #E5E1DA;
   overflow: hidden;
   max-width: 76rem;
   margin-left: auto;
@@ -431,7 +436,7 @@
 .care-card-media-side {
   position: relative;
   min-height: 340px;
-  background-color: #E2D9CE;
+  background-color: #E5E1DA;
 }
 
 .care-card-media-side img {
@@ -442,18 +447,18 @@
 
 /* 6. PROGRAMS & SERVICES EDITORIAL GRID */
 .care-programs-section-wrapper {
-  background-color: #FAF7F2;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #FDFCFB;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .care-programs-responsive-grid {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -473,84 +478,80 @@
 
 .program-editorial-card-article {
   background-color: #FFFFFF;
-  border: 1px solid rgba(155, 130, 88, 0.18);
-  border-radius: 0.875rem;
-  padding: 2rem;
+  border: 1px solid #E5E1DA;
+  padding: 2.25rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .program-editorial-card-article:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 35px -10px rgba(28, 35, 32, 0.08);
-  border-color: rgba(155, 130, 88, 0.4);
+  border-color: #1A1A1A;
+  transform: translateY(-2px);
 }
 
 .program-icon-badge-box {
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 0.625rem;
-  background-color: #F4EFE8;
-  color: #78623A;
+  width: 3rem;
+  height: 3rem;
+  background-color: #F7F5F0;
+  color: #C5A059;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(155, 130, 88, 0.2);
+  margin-bottom: 1.75rem;
+  border: 1px solid #E5E1DA;
 }
 
 .program-card-title {
   font-family: var(--font-serif);
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #171E1C;
-  line-height: 1.25;
+  font-weight: 400;
+  color: #1A1A1A;
+  line-height: 1.2;
   margin-bottom: 0.75rem;
 }
 
 .program-card-description {
-  font-size: 0.9375rem;
-  color: #55645D;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  color: #706B63;
+  line-height: 1.7;
   margin-bottom: 1.5rem;
+  font-weight: 300;
 }
 
 /* 7. HERITAGE & FOUNDER STORY */
 .heritage-story-section-wrapper {
-  background-color: #171E1C;
-  color: #FAF7F2;
-  padding-top: 6.5rem;
-  padding-bottom: 6.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #1A1A1A;
+  color: #FDFCFB;
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+  border-bottom: 1px solid #333333;
 }
 
 .heritage-story-grid-container {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 4.5rem;
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .heritage-story-grid-container {
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 5.5rem;
   }
 }
 
 .heritage-portrait-frame-box {
   position: relative;
-  border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(155, 130, 88, 0.3);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid #333333;
 }
 
 .heritage-portrait-frame-box img {
@@ -560,27 +561,26 @@
 }
 
 .heritage-quote-callout-panel {
-  margin-top: 2rem;
+  margin-top: 2.25rem;
   padding: 1.75rem;
-  background-color: rgba(255, 255, 255, 0.04);
-  border-left: 3px solid #9B8258;
-  border-radius: 0 0.5rem 0.5rem 0;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-left: 2px solid #C5A059;
 }
 
 /* 8. RESIDENCES & SUITES SECTION */
 .residences-section-wrapper {
-  background-color: #FAF7F2;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #FDFCFB;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .residences-cards-grid {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
@@ -594,39 +594,38 @@
 
 .suite-editorial-card-article {
   background-color: #FFFFFF;
-  border: 1px solid rgba(155, 130, 88, 0.18);
-  border-radius: 1rem;
+  border: 1px solid #E5E1DA;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .suite-editorial-card-article:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -15px rgba(28, 35, 32, 0.09);
+  border-color: #1A1A1A;
+  transform: translateY(-3px);
 }
 
 .suite-card-image-box {
   position: relative;
-  height: 240px;
+  height: 250px;
   overflow: hidden;
-  background-color: #E2D9CE;
+  background-color: #E5E1DA;
 }
 
 .suite-card-image-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
 .suite-editorial-card-article:hover .suite-card-image-box img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .suite-card-body-content {
-  padding: 2rem;
+  padding: 2.25rem;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -635,32 +634,31 @@
 
 /* 9. DAILY EXPERIENCE & LIFE AT HI HAVEN */
 .daily-experience-section-wrapper {
-  background-color: #F4EFE8;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #F7F5F0;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .daily-schedule-timeline-grid {
   max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .daily-slot-card-item {
   background-color: #FFFFFF;
-  border: 1px solid rgba(155, 130, 88, 0.18);
-  border-radius: 0.875rem;
-  padding: 1.75rem 2rem;
+  border: 1px solid #E5E1DA;
+  padding: 1.75rem 2.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  transition: all 0.25s ease;
+  transition: border-color 0.25s ease;
 }
 
 @media (min-width: 768px) {
@@ -672,24 +670,23 @@
 }
 
 .daily-slot-card-item:hover {
-  border-color: rgba(155, 130, 88, 0.4);
-  box-shadow: 0 10px 25px -5px rgba(28, 35, 32, 0.05);
+  border-color: #1A1A1A;
 }
 
 /* 10. VISUAL GALLERY MASONRY */
 .gallery-section-wrapper {
-  background-color: #FAF7F2;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #FDFCFB;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .gallery-grid-layout {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -709,12 +706,11 @@
 
 .gallery-tile-card {
   position: relative;
-  border-radius: 0.875rem;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  background-color: #E2D9CE;
+  background-color: #E5E1DA;
   cursor: pointer;
-  border: 1px solid rgba(155, 130, 88, 0.15);
+  border: 1px solid #E5E1DA;
 }
 
 .gallery-tile-card.tall {
@@ -729,36 +725,36 @@
 }
 
 .gallery-tile-card:hover img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .gallery-tile-overlay-content {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(18, 23, 21, 0) 30%, rgba(18, 23, 21, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0) 30%, rgba(26, 26, 26, 0.85) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.5rem;
-  color: #FAF7F2;
-  opacity: 0.92;
+  color: #FDFCFB;
+  opacity: 0.95;
   transition: opacity 0.3s ease;
 }
 
 /* 11. STANDARDS & PROVINCIAL ACCREDITATION */
 .trust-standards-section-wrapper {
-  background-color: #F4EFE8;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #F7F5F0;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .standards-responsive-grid {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
@@ -772,28 +768,27 @@
 
 .standard-card-box {
   background-color: #FFFFFF;
-  border: 1px solid rgba(155, 130, 88, 0.18);
-  border-radius: 0.875rem;
-  padding: 2.25rem;
+  border: 1px solid #E5E1DA;
+  padding: 2.5rem;
 }
 
 /* 12. TOUR SCHEDULING & ADMISSIONS SECTION */
 .admissions-tour-section-wrapper {
-  background-color: #FAF7F2;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  border-bottom: 1px solid rgba(155, 130, 88, 0.15);
+  background-color: #FDFCFB;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid #E5E1DA;
 }
 
 .admissions-grid-layout {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 4.5rem;
 }
 
 @media (min-width: 1024px) {
@@ -804,10 +799,8 @@
 
 .admissions-form-card-container {
   background-color: #FFFFFF;
-  border: 1px solid rgba(155, 130, 88, 0.2);
-  border-radius: 1rem;
+  border: 1px solid #E5E1DA;
   padding: 2.5rem;
-  box-shadow: 0 15px 35px rgba(28, 35, 32, 0.05);
 }
 
 @media (min-width: 640px) {
@@ -820,12 +813,12 @@
 .form-control-select-field,
 .form-control-textarea-field {
   width: 100%;
-  background-color: #FAF7F2;
-  border: 1px solid rgba(155, 130, 88, 0.3);
-  border-radius: 0.5rem;
+  background-color: #FDFCFB;
+  border: 1px solid #E5E1DA;
+  border-radius: 0;
   padding: 0.875rem 1rem;
-  font-size: 0.9375rem;
-  color: #171E1C;
+  font-size: 0.875rem;
+  color: #1A1A1A;
   transition: all 0.2s ease;
 }
 
@@ -833,107 +826,106 @@
 .form-control-select-field:focus,
 .form-control-textarea-field:focus {
   outline: none;
-  border-color: #78623A;
+  border-color: #1A1A1A;
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(155, 130, 88, 0.15);
 }
 
-/* 13. LUXURY BUTTONS */
+/* 13. EDITORIAL BUTTONS */
 .luxury-button-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background-color: #171E1C;
-  color: #FAF7F2;
+  gap: 0.75rem;
+  background-color: #1A1A1A;
+  color: #FDFCFB;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  padding: 0.875rem 1.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid #171E1C;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1.125rem 2.25rem;
+  border-radius: 0;
+  border: 1px solid #1A1A1A;
+  transition: all 0.25s ease;
   cursor: pointer;
   text-decoration: none;
 }
 
 .luxury-button-primary:hover {
-  background-color: #2F3B36;
-  border-color: #2F3B36;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(23, 30, 28, 0.2);
+  background-color: #C5A059;
+  border-color: #C5A059;
+  color: #FDFCFB;
 }
 
 .luxury-button-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   background-color: transparent;
-  color: #1A211E;
+  color: #1A1A1A;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  padding: 0.875rem 1.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(155, 130, 88, 0.4);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1.125rem 2rem;
+  border-radius: 0;
+  border: 1px solid #1A1A1A;
   transition: all 0.25s ease;
   cursor: pointer;
   text-decoration: none;
 }
 
 .luxury-button-secondary:hover {
-  background-color: rgba(155, 130, 88, 0.08);
-  border-color: #78623A;
-  color: #78623A;
+  border-color: #C5A059;
+  color: #C5A059;
 }
 
 .luxury-button-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  background-color: #78623A;
-  color: #FFFFFF;
+  gap: 0.75rem;
+  background-color: #C5A059;
+  color: #FDFCFB;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  padding: 0.875rem 1.75rem;
-  border-radius: 0.5rem;
-  border: 1px solid #78623A;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1.125rem 2.25rem;
+  border-radius: 0;
+  border: 1px solid #C5A059;
   transition: all 0.25s ease;
   cursor: pointer;
 }
 
 .luxury-button-gold:hover {
-  background-color: #5F4E2D;
-  border-color: #5F4E2D;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(120, 98, 58, 0.3);
+  background-color: #1A1A1A;
+  border-color: #1A1A1A;
+  color: #FDFCFB;
 }
 
-/* 14. LUXURY FOOTER */
+/* 14. EDITORIAL FOOTER */
 .site-luxury-footer {
-  background-color: #121715;
-  color: #C8BCAC;
+  background-color: #FDFCFB;
+  color: #1A1A1A;
   padding-top: 5.5rem;
-  padding-bottom: 3.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 4rem;
+  border-top: 1px solid #E5E1DA;
 }
 
 .footer-content-grid {
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3.5rem;
-  margin-bottom: 4rem;
+  gap: 4rem;
+  margin-bottom: 4.5rem;
 }
 
 @media (min-width: 640px) {
@@ -952,17 +944,19 @@
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-top: 2.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #E5E1DA;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.8125rem;
-  color: #8C8070;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #A8A39D;
 }
 
 @media (min-width: 768px) {
