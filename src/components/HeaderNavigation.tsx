@@ -45,10 +45,11 @@ export const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
 
   const navLinks = [
     { label: 'About Us', href: '#about', id: 'about' },
-    { label: 'The 17-Bed Home', href: '#residences', id: 'residences' },
-    { label: 'Our Approach to Care', href: '#care-programs', id: 'care-programs' },
+    { label: 'Services & Amenities', href: '#services', id: 'services' },
+    { label: 'Care Programs', href: '#care-programs', id: 'care-programs' },
+    { label: 'The Residence', href: '#residences', id: 'residences' },
     { label: 'Daily Life', href: '#experience', id: 'experience' },
-    { label: 'Admissions & Referrals', href: '#admissions', id: 'admissions' },
+    { label: 'Contact Us', href: '#admissions', id: 'admissions' },
     { label: 'FAQs', href: '#faqs', id: 'faqs' },
   ];
 
@@ -80,7 +81,7 @@ export const HeaderNavigation: React.FC<HeaderNavigationProps> = ({
           <div className="flex items-center gap-5 font-medium ml-auto">
             <span className="text-[#E8E1D5] hidden lg:inline-flex items-center gap-1.5 text-[10px] tracking-wider uppercase">
               <ShieldCheck className="w-3.5 h-3.5 text-[#B5A493]" />
-              17-Bed Provincially Licensed Community Care Home
+              15-Bed Residential Care Home • Government Subsidized
             </span>
             <a 
               href={`tel:${BUSINESS_INFO.contact.phone}`} 

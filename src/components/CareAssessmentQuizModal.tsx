@@ -45,7 +45,7 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
       return {
         title: 'Short-Term Respite Care Stay',
         careLevel: 'Short-Term Community Care',
-        summary: 'Fully furnished private bedroom, 3 home-cooked meals daily, and complete 24/7 personal care assistance for temporary family caregiver relief or recovery.',
+        summary: 'Fully furnished resident bedroom, 3 home-cooked meals daily, and complete 24/7 personal care assistance for temporary family caregiver relief or recovery.',
         nextStep: 'Respite availability is managed on a rolling basis. Call us directly to check suite availability for your preferred dates.'
       };
     } else {
@@ -53,8 +53,9 @@ export const CareAssessmentQuizModal: React.FC<CareAssessmentQuizModalProps> = (
         title: 'Level 1 & Level 2 Personal Care Home Living',
         careLevel: 'Level 1 & 2 Provincial Care Home Standards',
         summary: 'Comprehensive assistance with daily living (bathing, dressing, grooming, mobility), home-cooked meals, daily laundry/housekeeping, and 24/7 supervised medication administration.',
-        nextStep: 'Hi Haven accommodates both privately funded placements and government-subsidized residents through Newfoundland and Labrador Health Services.'
+        nextStep: 'Hi Haven accommodates placement inquiries and government-subsidized residents through Newfoundland and Labrador Health Services.'
       };
+
     }
   };
 

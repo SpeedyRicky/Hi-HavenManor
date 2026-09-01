@@ -34,12 +34,12 @@ export const LuxuryFooter: React.FC<LuxuryFooterProps> = ({
             </div>
 
             <p className="text-xs text-[#BAC7C0] leading-relaxed max-w-md font-light">
-              A 17-bed residential care home providing personal care, medication supervision, and supportive mental health & addiction recovery in Holyrood, Newfoundland & Labrador. Operated with heart by Lori & Rob Condon under {BUSINESS_INFO.legalName}.
+              A 15-bed residential care home providing personal care, medication supervision, and supportive mental health & addiction recovery in Holyrood, Newfoundland & Labrador under Eastern Health (NL Health Services). Family-run for over 40 years, renovated in 2015.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-[#FAF8F5] pt-2">
               <ShieldCheck className="w-4 h-4 text-[#8C705B]" />
-              <span>Licensed Level 1 & 2 Personal Care Home (NL Health Services)</span>
+              <span>Government Subsidized Residential Care • Certified PCA Attendants</span>
             </div>
           </div>
 
@@ -117,6 +117,13 @@ export const LuxuryFooter: React.FC<LuxuryFooterProps> = ({
               <Phone className="w-4 h-4 text-[#8C705B] flex-shrink-0" />
               <a href={`tel:${BUSINESS_INFO.contact.phone}`} className="hover:text-[#FAF8F5] font-medium text-[#FAF8F5]">
                 {BUSINESS_INFO.contact.phone}
+              </a>
+            </div>
+
+            <div className="flex items-center gap-2.5 text-xs text-[#BAC7C0]">
+              <Mail className="w-4 h-4 text-[#8C705B] flex-shrink-0" />
+              <a href={`mailto:${BUSINESS_INFO.contact.email}`} className="hover:text-[#FAF8F5] font-medium text-[#FAF8F5]">
+                {BUSINESS_INFO.contact.email}
               </a>
             </div>
 

@@ -104,8 +104,9 @@ export const TourBookingModal: React.FC<TourBookingModalProps> = ({
                 Come See Hi Haven in Person
               </h3>
               <p className="text-xs text-[#5F6B65] mt-1 font-light">
-                Meet Lori & Rob Condon, tour our private bedrooms, see the dining and living spaces, and get your questions answered.
+                Meet Lori & Rob Condon, tour our resident accommodations, see the dining and living spaces, and get your questions answered.
               </p>
+
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">

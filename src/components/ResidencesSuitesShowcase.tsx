@@ -18,7 +18,7 @@ export const ResidencesSuitesShowcase: React.FC<ResidencesSuitesShowcaseProps> =
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-[11px] uppercase tracking-[0.3em] text-[#5F6B65] font-semibold">
-              THE 17-BED HOME
+              THE 15-RESIDENT HOME
             </span>
             <div className="h-[1px] w-8 bg-[#233B31]"></div>
           </div>
@@ -26,12 +26,12 @@ export const ResidencesSuitesShowcase: React.FC<ResidencesSuitesShowcaseProps> =
             Comfortable, clean rooms with a genuine home feel.
           </h2>
           <p className="text-sm sm:text-base text-[#5F6B65] leading-relaxed font-light">
-            Our 17-bed residential setting strikes a thoughtful balance between personal privacy and community connection. All rooms include continuous staff presence, regular housekeeping, laundry service, and full home-cooked meals.
+            Our 15-resident home setting strikes a thoughtful balance between personal privacy and community connection. All accommodations include continuous PCA presence, regular housekeeping, laundry service, and full home-cooked meals.
           </p>
         </div>
 
         {/* Suites & Living Spaces Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {RESIDENCE_SPACES.map((suite, index) => {
             const numberLabel = `0${index + 1}`;
             return (

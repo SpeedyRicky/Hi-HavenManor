@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { HeaderNavigation } from './components/HeaderNavigation';
 import { SanctuaryHeroShowcase } from './components/SanctuaryHeroShowcase';
 import { CareNeedsNavigator } from './components/CareNeedsNavigator';
+import { MainServicesAmenities } from './components/MainServicesAmenities';
 import { CareProgramsGrid } from './components/CareProgramsGrid';
 import { HeritageStorySection } from './components/HeritageStorySection';
 import { ResidencesSuitesShowcase } from './components/ResidencesSuitesShowcase';
@@ -46,40 +47,43 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="flex-grow">
-        {/* 1. Cinematic Hero Showcase */}
+        {/* 1. Authentic Hero Showcase */}
         <SanctuaryHeroShowcase
           onOpenTourModal={() => handleOpenTourModal()}
           onOpenAssessmentModal={handleOpenAssessmentModal}
         />
 
-        {/* 2. Interactive Care Program Navigator */}
-        <CareNeedsNavigator onOpenTourModal={handleOpenTourModal} />
-
-        {/* 3. Care Programs & Service Offerings Grid */}
-        <CareProgramsGrid onOpenTourModal={handleOpenTourModal} />
-
-        {/* 4. 20+ Year Heritage & Founders Story */}
+        {/* 2. Over 40-Year Heritage & About Us Story */}
         <HeritageStorySection />
 
-        {/* 5. Residences & Living Suites */}
+        {/* 3. Main Services & Amenities (All 16+ Offerings) */}
+        <MainServicesAmenities onOpenTourModal={() => handleOpenTourModal('Services & Amenities Inquiry')} />
+
+        {/* 4. Care Programs & Service Offerings Grid */}
+        <CareProgramsGrid onOpenTourModal={handleOpenTourModal} />
+
+        {/* 5. Interactive Care Program Navigator */}
+        <CareNeedsNavigator onOpenTourModal={handleOpenTourModal} />
+
+        {/* 6. Residences & Living Suites */}
         <ResidencesSuitesShowcase onOpenTourModal={handleOpenTourModal} />
 
-        {/* 6. Daily Life & Rhythms */}
+        {/* 7. Daily Life & Rhythms */}
         <DailyLifeTimeline />
 
-        {/* 7. Visual Sanctuary Gallery */}
+        {/* 8. Visual Sanctuary Gallery */}
         <SanctuaryGallery />
 
-        {/* 8. Trust, Provincial Accreditation & Safety */}
+        {/* 9. Trust, Eastern Health Standards & Safety */}
         <TrustStandardsAccreditation />
 
-        {/* 9. Admissions & Tour Scheduling Portal */}
+        {/* 10. Contact Us & Admissions Section */}
         <AdmissionsInquirySection
           onOpenTourModal={() => handleOpenTourModal()}
           onOpenAssessmentModal={handleOpenAssessmentModal}
         />
 
-        {/* 10. FAQ Accordion */}
+        {/* 11. FAQ Accordion */}
         <FaqAccordionSection />
       </main>
 
@@ -108,3 +112,4 @@ export default function App() {
     </div>
   );
 }
+

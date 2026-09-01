@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BUSINESS_INFO } from '../data/hiHavenData';
+import { BUSINESS_INFO, ADMISSION_STEPS } from '../data/hiHavenData';
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, Calendar, ShieldCheck, ArrowRight } from 'lucide-react';
 
 interface AdmissionsInquirySectionProps {
@@ -11,22 +11,19 @@ export const AdmissionsInquirySection: React.FC<AdmissionsInquirySectionProps> =
   onOpenTourModal,
   onOpenAssessmentModal,
 }) => {
+  const [inquirerType, setInquirerType] = useState('a family member');
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
     phone: '',
     email: '',
-    residentName: '',
-    relationship: 'Family Member',
-    careType: 'Level 1 & 2 Personal Care',
-    timeline: 'Immediate (Next 30 Days)',
-    notes: '',
+    comments: '',
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.phone) return;
+    if (!formData.name || !formData.phone || !inquirerType) return;
     setIsSubmitted(true);
   };
 
@@ -38,127 +35,115 @@ export const AdmissionsInquirySection: React.FC<AdmissionsInquirySectionProps> =
         <div className="max-w-3xl mb-14">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-[11px] uppercase tracking-[0.3em] text-[#5F6B65] font-semibold">
-              ADMISSIONS & INQUIRIES
+              CONTACT & ADMISSIONS
             </span>
             <div className="h-[1px] w-8 bg-[#233B31]"></div>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#1C2622] leading-[1.1] mb-4" id="admissions-heading">
-            Taking the first step is simple and supportive.
+            Connect with Hi Haven Manor
           </h2>
           <p className="text-sm sm:text-base text-[#5F6B65] leading-relaxed font-light">
-            Choosing a community care home is an important family decision. Whether you are navigating regional health authority subsidies or seeking immediate private placement, our family is here to answer every question.
+            You can contact us by using the info below or use our contact form. Whether inquiring for yourself, a family member, or as a case worker, we are always here to help.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left Column: Guidance & Direct Contact Info */}
+          {/* Left Column: Direct Info & 4-Step Process */}
           <div className="lg:col-span-6 space-y-8">
-            <div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#1C2622] mb-6">
-                Our 4-Step Admission Process
-              </h3>
+            {/* Contact Card */}
+            <div className="bg-[#F3EFEA] p-6 sm:p-8 border border-[#E5DFC5] space-y-5">
+              <div>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#8C705B] font-bold block mb-1">
+                  GET IN TOUCH
+                </span>
+                <h3 className="font-serif text-2xl font-normal text-[#1C2622]">
+                  {BUSINESS_INFO.name}
+                </h3>
+              </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <span className="font-serif text-xl text-[#8C705B] font-medium flex-shrink-0 w-8">
-                    01
-                  </span>
+              <div className="space-y-3 text-xs sm:text-sm text-[#5F6B65]">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-[#233B31] flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-sm font-semibold text-[#1C2622]">Initial Conversation & Needs Review</h4>
-                    <p className="text-xs text-[#5F6B65] mt-1 leading-relaxed font-light">
-                      We discuss daily living needs, medication routines, and personal preferences over the phone or in person.
-                    </p>
+                    <strong className="text-[#1C2622] block font-medium">Address</strong>
+                    <span>{BUSINESS_INFO.location.address}</span><br />
+                    <span>{BUSINESS_INFO.location.town}, NL {BUSINESS_INFO.location.postalCode}</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <span className="font-serif text-xl text-[#8C705B] font-medium flex-shrink-0 w-8">
-                    02
-                  </span>
+                <div className="flex items-center gap-3 pt-2 border-t border-[#E5DFC5]/60">
+                  <Phone className="w-4 h-4 text-[#233B31] flex-shrink-0" />
                   <div>
-                    <h4 className="text-sm font-semibold text-[#1C2622]">In-Person Home Walkthrough</h4>
-                    <p className="text-xs text-[#5F6B65] mt-1 leading-relaxed font-light">
-                      Tour available bedrooms, meet our caring staff, see the dining and living spaces, and experience Holyrood.
-                    </p>
+                    <span className="text-xs text-[#5F6B65]">Telephone: </span>
+                    <a href={`tel:${BUSINESS_INFO.contact.phone}`} className="font-semibold text-[#1C2622] hover:underline">
+                      {BUSINESS_INFO.contact.phone}
+                    </a>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <span className="font-serif text-xl text-[#8C705B] font-medium flex-shrink-0 w-8">
-                    03
-                  </span>
+                <div className="flex items-center gap-3 pt-2 border-t border-[#E5DFC5]/60">
+                  <Mail className="w-4 h-4 text-[#233B31] flex-shrink-0" />
                   <div>
-                    <h4 className="text-sm font-semibold text-[#1C2622]">Assessment & Subsidy Coordination</h4>
-                    <p className="text-xs text-[#5F6B65] mt-1 leading-relaxed font-light">
-                      We assist in coordinating with NL Health Services case managers, social workers, and physicians.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <span className="font-serif text-xl text-[#8C705B] font-medium flex-shrink-0 w-8">
-                    04
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-semibold text-[#1C2622]">Move-In & Gentle Transition</h4>
-                    <p className="text-xs text-[#5F6B65] mt-1 leading-relaxed font-light">
-                      We help set up the resident's room with personal comforts, establish medication routines, and welcome them home.
-                    </p>
+                    <span className="text-xs text-[#5F6B65]">Email: </span>
+                    <a href={`mailto:${BUSINESS_INFO.contact.email}`} className="font-semibold text-[#1C2622] hover:underline">
+                      {BUSINESS_INFO.contact.email}
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Quick Contact Box */}
-            <div className="bg-[#F3EFEA] p-6 sm:p-7 border border-[#E5DFC5] space-y-4">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[#233B31]">
-                Direct Contact Information
-              </h4>
-
-              <div className="space-y-2 text-xs text-[#5F6B65]">
-                <div className="flex items-center gap-2.5">
-                  <Phone className="w-4 h-4 text-[#233B31]" />
-                  <span>Phone: <strong className="text-[#1C2622] font-semibold">{BUSINESS_INFO.contact.phone}</strong></span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <MapPin className="w-4 h-4 text-[#233B31]" />
-                  <span>{BUSINESS_INFO.location.address}, {BUSINESS_INFO.location.town}, NL {BUSINESS_INFO.location.postalCode}</span>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <Clock className="w-4 h-4 text-[#233B31]" />
-                  <span>{BUSINESS_INFO.contact.hours}</span>
-                </div>
-              </div>
-
-              <div className="pt-2 flex flex-wrap gap-3">
+              <div className="pt-3 border-t border-[#E5DFC5]/80 flex flex-wrap gap-3">
                 <button
                   onClick={onOpenTourModal}
                   className="bg-[#233B31] text-[#FAF8F5] px-5 py-2.5 text-xs uppercase tracking-wider font-medium hover:bg-[#1A2E26] transition-colors"
                 >
-                  <span>Book a Tour Date</span>
+                  Schedule an In-Person Visit
                 </button>
                 <button
                   onClick={onOpenAssessmentModal}
                   className="border border-[#233B31] text-[#233B31] px-5 py-2.5 text-xs uppercase tracking-wider font-medium hover:bg-[#233B31] hover:text-[#FAF8F5] transition-colors bg-transparent"
                 >
-                  <span>Take Care Quiz</span>
+                  Care Needs Assessment
                 </button>
+              </div>
+            </div>
+
+            {/* Admission Steps */}
+            <div>
+              <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#1C2622] mb-5">
+                How Admissions Work
+              </h3>
+
+              <div className="space-y-4">
+                {ADMISSION_STEPS.map((stepItem) => (
+                  <div key={stepItem.step} className="flex items-start gap-4 bg-white p-4 border border-[#E5DFC5]">
+                    <span className="font-serif text-lg text-[#8C705B] font-medium flex-shrink-0 w-7">
+                      {stepItem.step}
+                    </span>
+                    <div>
+                      <h4 className="text-xs font-semibold uppercase tracking-wider text-[#1C2622]">{stepItem.title}</h4>
+                      <p className="text-xs text-[#5F6B65] mt-1 leading-relaxed font-light">
+                        {stepItem.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Care Inquiry Form */}
+          {/* Right Column: Exact Contact Form from Specification */}
           <div className="lg:col-span-6 bg-white p-6 sm:p-8 border border-[#E5DFC5] shadow-xs">
             <div className="mb-6">
-              <span className="text-[10px] font-semibold uppercase tracking-wider text-[#233B31] block mb-1">
-                CONFIDENTIAL INQUIRY
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#233B31] block mb-1">
+                ONLINE MESSAGE
               </span>
               <h3 className="font-serif text-2xl font-normal text-[#1C2622]">
-                Inquire About Placement & Care
+                Contact Form
               </h3>
               <p className="text-xs text-[#5F6B65] mt-1 font-light">
-                Fill out this quick form and Lori & Rob Condon will be in touch promptly.
+                Please fill out the form below and we will get back to you promptly.
               </p>
             </div>
 
@@ -168,139 +153,121 @@ export const AdmissionsInquirySection: React.FC<AdmissionsInquirySectionProps> =
                   <CheckCircle className="w-6 h-6" />
                 </div>
                 <h4 className="font-serif text-2xl font-normal text-[#1C2622]">
-                  Thank You, {formData.fullName}
+                  Thank You, {formData.name}
                 </h4>
                 <p className="text-xs sm:text-sm text-[#5F6B65] leading-relaxed font-light">
-                  Your care inquiry has been received. We will contact you at <strong>{formData.phone}</strong> shortly to discuss care requirements and answer any questions.
+                  Your message has been sent to Hi Haven Manor. We will contact you at <strong>{formData.phone}</strong> shortly.
                 </p>
                 <button
-                  onClick={() => setIsSubmitted(false)}
+                  onClick={() => {
+                    setIsSubmitted(false);
+                    setFormData({ name: '', phone: '', email: '', comments: '' });
+                  }}
                   className="border border-[#233B31] text-[#233B31] text-xs uppercase tracking-wider py-2.5 px-6 mt-4 hover:bg-[#233B31] hover:text-[#FAF8F5] transition-colors"
                 >
-                  Submit Another Inquiry
+                  Send Another Message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                      Your Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      placeholder="e.g. Mary Walsh"
-                      className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. (709) 555-0192"
-                      className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="e.g. mary@example.ca"
-                      className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                      Relationship to Resident
-                    </label>
-                    <select
-                      value={formData.relationship}
-                      onChange={(e) => setFormData({ ...formData, relationship: e.target.value })}
-                      className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
-                    >
-                      <option value="Self">Inquiring for Myself</option>
-                      <option value="Family Member">Family Member (Son/Daughter/Spouse)</option>
-                      <option value="Healthcare Professional">Social Worker / Healthcare Worker</option>
-                      <option value="Legal Guardian">Legal Guardian / Power of Attorney</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                      Care Program Needed
-                    </label>
-                    <select
-                      value={formData.careType}
-                      onChange={(e) => setFormData({ ...formData, careType: e.target.value })}
-                      className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
-                    >
-                      <option value="Level 1 & 2 Personal Care">Level 1 & 2 Personal Care</option>
-                      <option value="Specialized Mental Health Recovery">Mental Health & Addiction Support</option>
-                      <option value="Short-Term Respite Stay">Short-Term Respite Stay</option>
-                      <option value="General Senior Living Inquiry">General Care Home Inquiry</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                      Estimated Timeline
-                    </label>
-                    <select
-                      value={formData.timeline}
-                      onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                      className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
-                    >
-                      <option value="Immediate (Next 30 Days)">Immediate (Next 30 Days)</option>
-                      <option value="1 to 3 Months">1 to 3 Months</option>
-                      <option value="Future Planning (6+ Months)">Future Planning (6+ Months)</option>
-                      <option value="Short-Term Respite Only">Short-Term Respite Only</option>
-                    </select>
-                  </div>
-                </div>
-
+              <form onSubmit={handleSubmit} className="space-y-5">
+                
+                {/* "I am:" Radios */}
                 <div>
-                  <label className="block text-xs font-medium text-[#1C2622] mb-1">
-                    Specific Care Details or Questions
+                  <label className="block text-xs font-semibold text-[#1C2622] mb-2">
+                    I am: <span className="text-[#8C705B] font-normal text-[11px]">(required)</span>
                   </label>
-                  <textarea
-                    rows={3}
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    placeholder="Share any details regarding mobility, medication assistance, dietary requirements, or subsidy questions..."
+                  <div className="space-y-2 text-xs text-[#1C2622]">
+                    {[
+                      { id: 'individual', label: 'an interested individual', val: 'an interested individual' },
+                      { id: 'family', label: 'a family member', val: 'a family member' },
+                      { id: 'caseworker', label: 'a case worker', val: 'a case worker' },
+                      { id: 'other', label: 'other', val: 'other' }
+                    ].map((opt) => (
+                      <label key={opt.id} className="flex items-center gap-2.5 cursor-pointer select-none">
+                        <input
+                          type="radio"
+                          name="inquirerType"
+                          value={opt.val}
+                          checked={inquirerType === opt.val}
+                          onChange={(e) => setInquirerType(e.target.value)}
+                          className="w-4 h-4 text-[#233B31] border-[#E5DFC5] focus:ring-[#233B31]"
+                        />
+                        <span>{opt.label}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Name */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1C2622] mb-1">
+                    Name <span className="text-[#8C705B] font-normal text-[11px]">(required)</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your Full Name"
                     className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
                   />
                 </div>
 
+                {/* Phone */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1C2622] mb-1">
+                    Phone Number <span className="text-[#8C705B] font-normal text-[11px]">(required)</span>
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="e.g. 709-229-7992"
+                    className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1C2622] mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="e.g. name@example.ca"
+                    className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
+                  />
+                </div>
+
+                {/* Comments */}
+                <div>
+                  <label className="block text-xs font-semibold text-[#1C2622] mb-1">
+                    Comments
+                  </label>
+                  <textarea
+                    rows={4}
+                    value={formData.comments}
+                    onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+                    placeholder="How can we assist you?"
+                    className="w-full bg-[#FAF8F5] border border-[#E5DFC5] px-3.5 py-2.5 text-xs text-[#1C2622] focus:outline-hidden focus:border-[#233B31]"
+                  />
+                </div>
+
+                {/* Submit */}
                 <button
                   type="submit"
-                  className="bg-[#233B31] text-[#FAF8F5] w-full py-3.5 text-xs uppercase tracking-[0.15em] font-medium hover:bg-[#1A2E26] transition-colors"
+                  className="bg-[#233B31] text-[#FAF8F5] w-full py-3.5 text-xs uppercase tracking-[0.15em] font-medium hover:bg-[#1A2E26] transition-colors shadow-sm"
                   id="admissions-form-submit-btn"
                 >
-                  Send Confidential Message
+                  Submit
                 </button>
 
-                <p className="text-[11px] text-[#5F6B65] text-center mt-2 flex items-center justify-center gap-1.5">
+                <p className="text-[11px] text-[#5F6B65] text-center mt-2 flex items-center justify-center gap-1.5 font-light">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#233B31]" />
-                  All inquiries are kept strictly confidential.
+                  Your information is kept strictly private and confidential.
                 </p>
               </form>
             )}
@@ -312,4 +279,5 @@ export const AdmissionsInquirySection: React.FC<AdmissionsInquirySectionProps> =
     </section>
   );
 };
+
 

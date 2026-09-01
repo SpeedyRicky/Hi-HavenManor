@@ -9,12 +9,12 @@ export const SanctuaryGallery: React.FC = () => {
 
   const categories = [
     { id: 'all', label: 'All Photos' },
-    { id: 'grounds', label: 'Surroundings & Exterior' },
-    { id: 'suites', label: 'Bedrooms' },
-    { id: 'dining', label: 'Dining & Kitchen' },
-    { id: 'lifestyle', label: 'Living Rooms' },
-    { id: 'care', label: 'Care & Staff' },
+    { id: 'home', label: 'Holyrood Home' },
+    { id: 'rooms', label: 'Interior & Dining' },
+    { id: 'grounds', label: 'Park-Like Grounds' },
+    { id: 'scenic', label: 'Holyrood Surroundings' },
   ];
+
 
   const filteredItems = selectedCategory === 'all'
     ? GALLERY_ITEMS
@@ -60,7 +60,7 @@ export const SanctuaryGallery: React.FC = () => {
             A look inside our home and Holyrood grounds.
           </h2>
           <p className="text-sm sm:text-base text-[#5F6B65] leading-relaxed font-light">
-            Take a visual tour of Hi Haven Manor. Our 17-bed home features bright bedrooms, communal living rooms, home-cooked family dinners, and peaceful coastal surroundings.
+            Take a visual tour of Hi Haven Manor. Our 15-resident home features bright bedrooms, communal living rooms, home-cooked family dinners, and peaceful coastal surroundings.
           </p>
         </div>
 

@@ -1,307 +1,507 @@
 import { CareProgram, ResidenceSuite, DailyActivitySlot, GalleryItem, AccreditationStandard } from '../types';
+import hiHavenMainExterior from '../assets/images/hi_haven_exact_screenshot.png';
+import hiHavenInteriorDining from '../assets/images/hi_haven_interior_dining_1788296951606.jpg';
+import hiHavenLawnChairs from '../assets/images/hi_haven_lawn_chairs_1788296978599.jpg';
+import hiHavenPicnicExterior from '../assets/images/hi_haven_exterior_picnic_1788296990761.jpg';
+import hiHavenSign from '../assets/images/hi_haven_entrance_sign_1788296965816.jpg';
+import hiHavenParkGrounds from '../assets/images/hi_haven_park_grounds_1788297005216.jpg';
+import hiHavenDriveway from '../assets/images/hi_haven_driveway_approach_1788297049806.jpg';
+import hiHavenLakeSummer from '../assets/images/hi_haven_lake_summer_1788297023231.jpg';
+import hiHavenLakeWinter from '../assets/images/hi_haven_lake_winter_1788297036501.jpg';
 
 export const BUSINESS_INFO = {
   name: 'Hi Haven Manor',
   shortName: 'Hi Haven',
-  legalName: "Condon's Home for Special Care Inc. o/a Hi Haven Manor",
-  capacity: '17-Bed Residential Home',
-  bedCount: 17,
-  foundedYear: '2004',
-  yearsOfCare: '20+',
-  owners: 'Lori & Rob Condon',
+  legalName: "Hi Haven Manor",
+  capacity: '15 Adult Residents Maximum',
+  bedCount: 15,
+  foundedYear: '40+ Years of History',
+  renovationYear: '2015 (Modernized Under New Management)',
+  yearsOfCare: '40+',
   tagline: 'A Place to Feel at Home',
-  subTagline: '17-Bed Community Care Home • Holyrood, Newfoundland',
+  subTagline: 'Personalized Residential Care Home • Holyrood, Newfoundland & Labrador',
   location: {
-    address: '36 Butter Pot Road',
+    address: '36 Butterpot Road',
     town: 'Holyrood',
     province: 'Newfoundland and Labrador',
     postalCode: 'A0A 2R0',
     country: 'Canada',
-    region: 'Conception Bay South / Avalon Peninsula',
-    landmarks: 'Located in tranquil Holyrood near Butter Pot hills, 30 minutes from St. John\'s'
+    region: 'Conception Bay / Avalon Peninsula',
+    landmarks: 'Nestled in a peaceful, park-like environment in Holyrood, only 30 minutes from downtown St. John’s'
   },
   contact: {
-    phone: '(709) 229-7992',
-    alternatePhone: '(236) 239-2909',
+    phone: '709-229-7992',
+    phoneDisplay: '709-229-7992',
     email: 'info@hihaven.ca',
-    admissionsEmail: 'admissions@hihaven.ca',
-    hours: '24/7 Caring Staff On-Site | Admissions Inquiries: Mon–Fri 8:30 AM – 5:00 PM',
-    visitingHours: 'Daily 9:00 AM – 8:00 PM (Family & support networks warmly welcomed)'
+    admissionsEmail: 'info@hihaven.ca',
+    hours: '24/7 Supervised Living Accommodations | Inquiries: Mon–Fri 8:30 AM – 5:00 PM',
+    visitingHours: 'Daily visiting encouraged — We actively maintain strong bonds with family & friends'
   },
-  emergencyNote: '24/7 on-site personal care attendants, certified medication management, and close liaison with NL Health Services.'
+  emergencyNote: '24/7 staff supervision, certified Personal Care Attendants (PCAs), weekly doctor visits, and access to psychiatric specialists.'
 };
 
 export const CORE_PILLARS = [
   {
     number: '01',
-    title: '17-Bed Intimate Community',
-    description: 'A small, close-knit home where every resident is known personally by name, story, and daily preferences.'
+    title: '15 Adult Residents Maximum',
+    description: 'A small, personalized home environment that feels like a real family rather than an institution.'
   },
   {
     number: '02',
-    title: 'Mental Health & Recovery Focus',
-    description: 'Compassionate, trauma-informed support for adults living with mental health and addiction-related challenges.'
+    title: 'Mental Health & Addiction Program',
+    description: 'Supervised residential living, clinical support, therapeutic recreation, and leisure under Eastern Health.'
   },
   {
     number: '03',
-    title: '24/7 Dedicated Staff Presence',
-    description: 'Trained, certified personal care attendants on-duty around the clock providing stability, safety, and encouragement.'
+    title: 'Certified PCA Staff & Weekly Doctor',
+    description: 'Trained Personal Care Attendants, visiting General Practitioner, and access to medical and psychiatric specialists.'
   },
   {
     number: '04',
-    title: '20+ Years in Holyrood',
-    description: 'Rooted in Newfoundland hospitality under the continuous guidance of Lori & Rob Condon since 2004.'
+    title: 'Over 40 Years of Heritage',
+    description: 'A cherished Holyrood property with over 4 decades of history, fully renovated and updated in 2015.'
   }
 ];
+
+export const AMENITIES_SERVICES_LIST = [
+  {
+    title: 'Home Cooked Meals',
+    description: 'Nutritious, delicious meals prepared fresh daily in a warm family dining atmosphere.',
+    category: 'Nutrition'
+  },
+  {
+    title: 'Furnished Resident Accommodations',
+    description: 'Comfortable, personalized rooms in an intimate 15-resident maximum setting.',
+    category: 'Accommodations'
+  },
+  {
+    title: 'Complimentary Housekeeping & Laundry',
+    description: 'Complete daily housekeeping and laundry services included at no additional charge.',
+    category: 'Living Services'
+  },
+  {
+    title: 'Assistance with Personal Care as Required',
+    description: 'Certified Personal Care Attendants providing respectful assistance tailored to each resident.',
+    category: 'Personal Care'
+  },
+  {
+    title: 'Weekly Doctor Visits',
+    description: 'Ongoing medical attention from a local General Practitioner right at our home.',
+    category: 'Medical Care'
+  },
+  {
+    title: 'Access to Psychiatric Services',
+    description: 'Clinical support and specialist coordination under the Mental Health & Addiction program.',
+    category: 'Medical Care'
+  },
+  {
+    title: 'Hair Stylist & Foot Care Services',
+    description: 'On-site professional hair styling and specialized foot care for comfort and well-being.',
+    category: 'Personal Wellness'
+  },
+  {
+    title: 'In-House Canteen',
+    description: 'A convenient on-site canteen for snacks, treats, and personal daily items.',
+    category: 'Convenience'
+  },
+  {
+    title: 'Transportation to Medical Appointments',
+    description: 'Safe, coordinated transportation to healthcare clinics and specialist visits.',
+    category: 'Transportation'
+  },
+  {
+    title: 'Recreation & Leisure Program',
+    description: 'Therapeutic recreation, games, social activities, crafts, and outdoor walks.',
+    category: 'Recreation'
+  },
+  {
+    title: 'Library & Free WiFi',
+    description: 'Quiet reading corners with a collection of books, plus high-speed WiFi throughout.',
+    category: 'Leisure'
+  },
+  {
+    title: 'Near Holyrood Community Amenities',
+    description: 'Conveniently located near town shops, churches, boardwalk, and recreational spots.',
+    category: 'Community'
+  },
+  {
+    title: '30 Minutes from Downtown St. John’s',
+    description: 'Tranquil, park-like woodland setting with quick access to major provincial health centres.',
+    category: 'Location'
+  }
+];
+
+export const ABOUT_US_STORY = {
+  headline: 'Our History & Heart: Over 40 Years in Holyrood',
+  subheading: 'From Historic Woodland Motel & Cabins to a Cherished Community Care Home',
+  paragraphs: [
+    'Hi Haven Manor has been a family-run establishment in Holyrood for over 40 years. Originally, our property served the community as a beloved tavern and motel, complete with cabins for travellers and wooded grounds for camping. Following the closure of the local refinery, the property began its meaningful new chapter, transforming into a dedicated residential care home for adults in need of supportive living.',
+    'In 2015, Hi Haven Manor came under new ownership and management who embarked on comprehensive renovations and structural updates, modernizing the building, accommodations, and communal facilities while preserving its warm, down-home Newfoundland charm.',
+    'Today, Hi Haven Manor operates under the Mental Health and Addiction program of Eastern Health (Newfoundland and Labrador Health Services). Because our program is government-subsidized, potential residents and their families can readily apply for provincial financial assistance.',
+    'Our philosophy is simple: we provide a surrogate family setting where every resident is treated with dignity, kindness, and personal respect. We assist each individual to reach their maximum potential for growth and self-determination through individualized care planning, recreational programming, and clinical support.',
+    'We are proud that our dedicated staff have completed their certified PCA (Personal Care Attendant) training, ensuring professional, compassionate care around the clock. We also place great value on keeping families close, actively encouraging visits and staying in constant communication with loved ones.'
+  ],
+  homeEnvironmentHighlights: [
+    'Intimate scale: 15 adult residents maximum for a true home feel vs. an institution',
+    'Park-like environment beautifully nestled among the evergreens of Holyrood',
+    'Self-determined care: Supervision provided is no greater than necessary, encouraging community integration',
+    'Weekly community General Practitioner visits and access to psychiatric specialists',
+    'Government-subsidized placement options through NL Health Services'
+  ]
+};
 
 export const CARE_PROGRAMS: CareProgram[] = [
   {
     id: 'mental-health-recovery',
     category: 'mental-health',
-    title: 'Supportive Mental Health & Recovery Living',
-    careLevel: 'Mental Health & Recovery Support',
-    shortDescription: 'A trauma-informed, peaceful home environment fostering emotional stability, daily routine, and personal dignity.',
-    fullDescription: 'For over 20 years, Hi Haven Manor has provided a structured, non-judgmental residential home for adults living with mental health and addiction-related challenges. We believe in treating each person as a whole human being rather than a diagnosis. Our supportive environment builds a steady foundation through predictable daily rhythms, emotional safety, and respectful encouragement.',
-    eligibility: 'Adults requiring structured daily stability, supportive housing, and recovery-oriented residential living.',
+    title: 'Mental Health & Addiction Residential Program',
+    careLevel: 'Supervised Living & Clinical Support',
+    shortDescription: 'Supervised accommodations, clinical support, therapeutic recreation, and a leisure program in a calm park-like setting.',
+    fullDescription: 'Under the Mental Health and Addiction program of Eastern Health (NL Health Services), Hi Haven Manor provides supervised living accommodations for adults experiencing severe and persistent mental illness or recovery challenges. Our supportive team provides steady clinical liaison, structured daily routines, and encouragement, ensuring residents retain their independence and autonomy.',
+    eligibility: 'Adults requiring supportive housing, psychiatric specialist coordination, and structured community living (Government subsidized).',
     highlights: [
-      'Trauma-informed, compassionate caregiver approach',
-      'Peaceful, low-stress residential setting in Holyrood',
-      'Daily routine harmony, emotional grounding & encouragement',
-      'Coordination with community mental health workers & physicians'
+      'Residential services under Eastern Health / NLHS Mental Health & Addiction program',
+      'Clinical support, therapeutic recreation, and customized leisure activities',
+      'Encouraging self-determination: residents determine how to meet their own goals',
+      'Supervision no greater than necessary to foster active community integration'
     ],
     keyFeatures: [
-      'Individualized Resident Support Plans',
-      'Safe, Respectful, Non-Institutional Environment',
-      'Relapse-Sensitive Recovery Support & Stability',
-      'Active Coordination with NL Health Services Case Teams'
+      'Comprehensive Individualized Care Plans',
+      'Weekly Doctor Visits & Access to Psychiatric Specialists',
+      'Structured Yet Flexible Daily Living Routines',
+      'Subsidized Placements Through NL Health Services'
     ],
-    staffingRatio: 'High staff-to-resident presence with continuous 24/7 supervision',
-    image: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Peaceful garden seating with natural forest views in Holyrood'
+    staffingRatio: '24/7 supervision with certified Personal Care Attendants (PCAs)',
+    image: hiHavenPicnicExterior,
+    imageAlt: 'Hi Haven Manor peaceful residential care home exterior and picnic grounds in Holyrood'
   },
   {
     id: 'personal-care-services',
     category: 'personal-care',
-    title: 'Level 1 & Level 2 Personal Care',
-    careLevel: 'Level 1 & 2 Personal Care',
-    shortDescription: 'Attentive, dignified daily support with dressing, personal hygiene, grooming, and mobility.',
-    fullDescription: 'Our certified personal care attendants provide gentle, respectful assistance with the activities of daily living. Operating in strict adherence to Provincial Personal Care Home Operational Standards, we help residents maintain optimal self-reliance while providing the steady helping hand they need.',
-    eligibility: 'Individuals requiring non-acute assistance with personal hygiene, medication oversight, or mobility.',
+    title: 'Daily Living & Personal Care Support',
+    careLevel: 'Level 1 & Level 2 Personal Care',
+    shortDescription: 'Attentive, dignified assistance with personal hygiene, bathing, dressing, medication, and mobility.',
+    fullDescription: 'Our certified Personal Care Attendants provide respectful, compassionate support with the activities of daily living. We assist residents with hygiene, grooming, and medication administration while actively promoting their self-reliance in an intimate 15-resident household.',
+    eligibility: 'Individuals needing support with daily living activities, medication oversight, or mobility in a supportive setting.',
     highlights: [
-      '24/7 on-site Personal Care Attendants (PCAs)',
-      'Assistance with bathing, grooming, and laundry',
-      'Physician, pharmacy, and community nurse coordination',
-      'Safe, single-level accessible living spaces'
+      'Certified Personal Care Attendants (PCAs) on duty 24/7',
+      'Supervised medication storage and scheduled administration',
+      'Complimentary housekeeping, linen changes, and personal laundry',
+      'Regular on-site visits from visiting General Practitioner'
     ],
     keyFeatures: [
-      'Certified Medication Storage & Timely Administration',
-      'Support with Morning & Evening Routines',
-      'Hydration & Well-Being Monitoring',
-      'Private, Respectful Hygiene Assistance'
+      'Safe, Barrier-Free Single-Level Accommodations',
+      'Assistance with Bathing, Dressing & Grooming',
+      'Hair Stylist & Specialized Foot Care Services',
+      'Transportation Arranged to Medical Appointments'
     ],
-    staffingRatio: 'Continuous day and night attendants on-site 365 days a year',
-    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Caregiver warmly assisting resident in a bright, sunlit room'
+    staffingRatio: 'Continuous 24/7 on-site attendant care',
+    image: hiHavenMainExterior,
+    imageAlt: 'Hi Haven Manor home care setting in Holyrood, NL'
   },
   {
     id: 'nutrition-culinary',
     category: 'living-support',
-    title: 'Home-Cooked Nutrition & Family Dining',
-    careLevel: 'Nutrition & Wellness',
-    shortDescription: 'Three hot, nutritious home-cooked meals prepared daily, served family-style with fresh baking and tea times.',
-    fullDescription: 'At Hi Haven, mealtimes are the heartbeat of our home. Prepared fresh daily in our country kitchen, meals honor hearty Newfoundland comfort food alongside balanced nutrition reviewed by registered dietitians. We accommodate diabetic, low-sodium, and special dietary needs while creating a warm, social gathering place around the table.',
-    eligibility: 'Included for all residents, customized for individual health and dietary requirements.',
+    title: 'Fresh Home Cooked Meals & Dining',
+    careLevel: 'Home-Cooked Nutrition',
+    shortDescription: 'Three hot home-cooked meals prepared daily, plus tea times, snacks, and an in-house canteen.',
+    fullDescription: 'At Hi Haven Manor, home-cooked food is at the heart of our surrogate family setting. Prepared fresh daily, our meals offer wholesome Newfoundland comfort food and balanced nutrition, accommodating special diets, diabetic needs, and individual tastes.',
+    eligibility: 'Included for all 15 residents, with dietary accommodations.',
     highlights: [
-      '3 hot nutritious meals daily plus morning and evening snacks',
-      'Freshly baked breads, hearty soups, and traditional comfort favorites',
-      'Dietitian-approved menu cycles and diabetic-friendly alternatives',
-      'Warm communal dining table encouraging genuine conversation'
+      '3 hot nutritious home-cooked meals served daily',
+      'Fresh baking, evening snacks, and continuous tea & coffee',
+      'In-house canteen for favorite treats and personal items',
+      'Warm family dining table encouraging companionship'
     ],
     keyFeatures: [
-      'Family-Style Dining Experience in Warm Hearth Setting',
-      'Special Holiday Dinners & Resident Birthday Celebrations',
-      'Continuous Access to Herbal Teas, Coffee & Fresh Fruit',
-      'Dietary Accommodations for Allergies & Health Needs'
+      'Family-Style Dining in a Relaxed Setting',
+      'Holiday Dinners & Resident Birthday Celebrations',
+      'Special Diet & Texture Modifications as Needed',
+      'Dietary Balance in a Welcoming Kitchen Atmosphere'
     ],
-    staffingRatio: 'Dedicated kitchen staff trained in safe food handling and therapeutic diets',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Wholesome, home-cooked meal served in a warm residential dining setting'
+    staffingRatio: 'Dedicated kitchen staff and PCA support during all mealtimes',
+    image: hiHavenInteriorDining,
+    imageAlt: 'Hi Haven Manor home-cooked meals and dining room in Holyrood'
   },
   {
-    id: 'life-skills-community',
+    id: 'recreation-community',
     category: 'recovery-support',
-    title: 'Life Skills, Social Connection & Routine',
-    careLevel: 'Life Skills & Respite',
-    shortDescription: 'Fostering self-esteem, healthy daily routines, creative expression, and community belonging.',
-    fullDescription: 'Recovery and stability flourish when individuals have a sense of purpose and connection. We encourage residents to participate in daily household rhythms, personalized hobbies, walks in the fresh Holyrood air, board games, music afternoons, and supervised community outings.',
-    eligibility: 'Open to all residents to participate at their own comfortable pace.',
+    title: 'Therapeutic Recreation, Leisure & Community',
+    careLevel: 'Recreation & Life Skills',
+    shortDescription: 'Fostering social connection, leisure, library time, outdoor walks, and Holyrood community life.',
+    fullDescription: 'Residents are supported to live active, meaningful lives. We provide a therapeutic recreation program, a library corner, free WiFi, social games, and outings into Holyrood, all while giving residents the space to determine how they spend their own time.',
+    eligibility: 'All residents participate at their own comfort level and preference.',
     highlights: [
-      'Gentle daily routine building self-reliance and peace of mind',
-      'Outdoor walks along quiet Butter Pot country roads',
-      'Art, puzzles, acoustic music, and social recreation',
-      'Respect for personal quiet time and individual space'
+      'Therapeutic recreation and leisure activities',
+      'Park-like outdoor grounds with colorful lawn seating and trees',
+      'In-house library, board games, crafts, and free WiFi',
+      'Convenient access to Holyrood town directory and amenities'
     ],
     keyFeatures: [
-      'Support with Personal Organization & Room Care',
-      'Safe, Inclusive Social Spaces Without Pressure',
-      'Supervised Community Outings & Local Shopping Trips',
-      'Short-Term Respite Stays for Caregiver Relief'
+      'Close Bonds with Family & Friends (Visits Encouraged)',
+      'Community Integration & Local Town Excursions',
+      'Respect for Quiet Time and Individual Independence',
+      'Surrogate Family Atmosphere Full of Warmth'
     ],
-    staffingRatio: 'Attendants actively engaged in recreational and social support',
-    image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Comfortable living room with warm light, armchairs, and books'
+    staffingRatio: 'Attendants actively engaged in recreational support',
+    image: hiHavenLawnChairs,
+    imageAlt: 'Hi Haven Manor park-like grounds and colorful Adirondack lawn seating'
+  }
+];
+
+
+export interface ServiceAmenityItem {
+  title: string;
+  description: string;
+  icon: string;
+  category: 'core' | 'health' | 'living' | 'location';
+}
+
+export const SERVICES_AND_AMENITIES: ServiceAmenityItem[] = [
+  {
+    title: 'Home Cooked Meals',
+    description: '3 wholesome, delicious home-cooked meals prepared fresh daily, plus snacks and continuous tea/coffee.',
+    icon: 'Utensils',
+    category: 'core'
+  },
+  {
+    title: 'Furnished Resident Accommodations',
+    description: 'Comfortable, sunlit bedrooms with personal furnishings, wardrobes, and window views of Holyrood.',
+    icon: 'Bed',
+    category: 'living'
+  },
+  {
+    title: 'Complimentary Housekeeping & Laundry Services',
+    description: 'Full laundry, linen changes, and daily room and common-area cleaning provided at no extra charge.',
+    icon: 'Sparkles',
+    category: 'living'
+  },
+  {
+    title: 'Assistance with Personal Care as Required',
+    description: 'Trained Personal Care Attendants (PCAs) ready to help with hygiene, bathing, dressing, and daily routines.',
+    icon: 'HeartPulse',
+    category: 'health'
+  },
+  {
+    title: 'Weekly Doctor Visits',
+    description: 'Scheduled on-site physician visits and regular health monitoring right at Hi Haven Manor.',
+    icon: 'Stethoscope',
+    category: 'health'
+  },
+  {
+    title: 'Hair Stylist',
+    description: 'Visiting hair care services so residents can look and feel their absolute best without travel.',
+    icon: 'Scissors',
+    category: 'living'
+  },
+  {
+    title: 'Foot Care Services',
+    description: 'Specialized foot care appointments provided on-site for comfort, mobility, and diabetic health.',
+    icon: 'Footprints',
+    category: 'health'
+  },
+  {
+    title: 'In-house Canteen',
+    description: 'Convenient canteen on-site for purchasing favorite snacks, beverages, and personal sundries.',
+    icon: 'ShoppingBag',
+    category: 'living'
+  },
+  {
+    title: 'Transportation to Medical Appointments',
+    description: 'Coordinated transportation ensuring residents safely attend specialist and clinic appointments.',
+    icon: 'Car',
+    category: 'health'
+  },
+  {
+    title: 'Recreation Program',
+    description: 'Engaging therapeutic recreation, social games, holiday celebrations, crafts, and music.',
+    icon: 'Palette',
+    category: 'living'
+  },
+  {
+    title: 'Library',
+    description: 'Cozy book corner filled with novels, magazines, puzzles, and quiet reading areas.',
+    icon: 'BookOpen',
+    category: 'living'
+  },
+  {
+    title: 'Free WiFi',
+    description: 'Complimentary high-speed internet throughout the residence to stay connected with family & friends.',
+    icon: 'Wifi',
+    category: 'living'
+  },
+  {
+    title: 'Access to Psychiatric Services',
+    description: 'Integrated support under the Mental Health and Addiction program of Eastern Health (NL Health Services).',
+    icon: 'Brain',
+    category: 'health'
+  },
+  {
+    title: 'Conveniently located near many Community Amenities',
+    description: 'Close to Holyrood shops, post office, churches, pharmacy, and coastal walking trails.',
+    icon: 'MapPin',
+    category: 'location'
+  },
+  {
+    title: 'Only 30 minutes from downtown St. John’s',
+    description: 'Peaceful Avalon Peninsula countryside retreat with quick direct highway access to the capital.',
+    icon: 'Compass',
+    category: 'location'
+  },
+  {
+    title: '... and Much More!',
+    description: 'A genuine surrogate family setting where every resident is respected, valued, and cared for.',
+    icon: 'Plus',
+    category: 'core'
   }
 ];
 
 export const RESIDENCE_SPACES: ResidenceSuite[] = [
   {
-    id: 'private-bedroom',
-    name: 'Private Resident Bedroom',
-    tier: 'Private Bedroom',
-    tagline: 'A quiet, personal haven with natural light and personalized comfort.',
-    view: 'Windows overlooking Holyrood woodlands & surrounding hills',
-    description: 'Our private bedrooms provide a calm, peaceful personal sanctuary where residents can rest, read, and recharge. Residents are encouraged to personalize their room with family photos, cherished keepsakes, and favorite beddings to make it truly their own.',
+    id: 'resident-accommodations',
+    name: 'Resident Accommodations & Bedrooms',
+    tier: 'Resident Bedroom',
+    tagline: 'Quiet, comfortable personal bedrooms with natural light, heating, and personalized touches.',
+    view: 'Windows looking onto peaceful Holyrood trees and park-like grounds',
+    description: 'Our resident accommodations provide a calm, peaceful personal sanctuary within our 15-resident home. Residents are encouraged to personalize their room with family photos, cherished keepsakes, and favorite bedding.',
     amenities: [
-      'Comfortable twin or full bed with fresh linens and pillows',
-      'Solid wood dresser, wardrobe closet, and comfortable armchair',
-      'Large picture window bringing in soft natural daylight',
-      'Individual baseboard heat control for personal comfort',
-      'Emergency call system within arm\'s reach of the bed',
-      'Regular housekeeping, laundry, and linen services'
+      'Comfortable bed with fresh linens and pillows',
+      'Dresser, wardrobe storage, and cozy armchair',
+      'Bright window welcoming daylight throughout the day',
+      'Complimentary housekeeping and laundry services included',
+      'Free high-speed WiFi access throughout',
+      'Easy single-level access to living, dining, and outdoor spaces'
     ],
     safetyFeatures: [
-      'Accessible doorway widths accommodating mobility aids',
-      'Bedside call-bell alert system for 24/7 staff support',
-      'Non-slip flooring and ground-level safety egress',
-      'Integrated smoke and heat detection systems'
+      '24/7 PCA staff presence and rapid assistance',
+      'Single-level accessible floor plan',
+      'Integrated smoke and heat detection',
+      'Supervised medication administration'
     ],
-    image: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Warm, cozy private bedroom with soft natural light, wooden nightstand, and clean linens'
-  },
-  {
-    id: 'semi-private-bedroom',
-    name: 'Semi-Private Shared Bedroom',
-    tier: 'Semi-Private Room',
-    tagline: 'Spacious shared accommodations fostering companionship and connection.',
-    view: 'Quiet garden courtyard views and sunrise exposure',
-    description: 'Designed for residents who thrive with friendly companionship. Our semi-private rooms are arranged with ample personal territory, divided storage, and individual privacy considerations.',
-    amenities: [
-      'Individual comfortable beds with personal reading lamps',
-      'Dedicated double wardrobes and private dresser drawers',
-      'Shared adjacent accessible bathroom with walk-in shower',
-      'Bedside emergency call stations for each resident',
-      'Bright windows welcoming daylight throughout the day',
-      'Weekly linen changes and daily tidy service'
-    ],
-    safetyFeatures: [
-      'Clear individual zones for easy personal orientation',
-      'Dual emergency call pull cords with quick attendant response',
-      'Slip-resistant bathroom surfaces and sturdy support grab bars'
-    ],
-    image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Bright, clean shared room with comfortable wooden beds and soft neutral tones'
-  },
-  {
-    id: 'hearth-living-room',
-    name: 'The Communal Hearth & Living Room',
-    tier: 'Communal Living Space',
-    tagline: 'The heart of our home for conversation, relaxation, music, and quiet reading.',
-    view: 'Central gathering hub with views of the front garden',
-    description: 'A welcoming, comfortable living area furnished with deep sofas, a fireplace mantel, bookshelves filled with novels and puzzles, a television, and quiet corners for conversation with family or fellow residents.',
-    amenities: [
-      'Plush sofas and supportive armchairs around the hearth',
-      'Extensive library of books, board games, cards, and puzzles',
-      'Television for movie nights, sports broadcasts, and news',
-      'Piano/guitar area for impromptu Newfoundland music',
-      'Open-door family visiting area throughout visiting hours'
-    ],
-    safetyFeatures: [
-      'Open-concept layout allowing 24/7 gentle staff supervision',
-      'Well-lit hallways and level, trip-free floor transitions',
-      'Direct access to outdoor garden patio'
-    ],
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Cozy living room with fireplace, comfortable armchairs, and warm wooden accents'
+    image: hiHavenInteriorDining,
+    imageAlt: 'Hi Haven Manor resident accommodation and living spaces'
   },
   {
     id: 'kitchen-dining-room',
-    name: 'Country Kitchen & Dining Room',
-    tier: 'Communal Living Space',
-    tagline: 'Where hot meals are prepared fresh and shared together like a family.',
+    name: 'Home Kitchen & Family Dining Room',
+    tier: 'Communal Dining',
+    tagline: 'Where 3 hot, home-cooked meals are prepared and shared family-style every day.',
     view: 'Sunlit dining area overlooking the Holyrood grounds',
-    description: 'Our dining room is where our community comes together three times a day. Filled with the comforting aromas of home cooking, fresh bread, and tea, it represents the warmth and hospitality of a genuine Newfoundland home.',
+    description: 'Our dining room is where our 15-resident family gathers three times a day for wholesome, home-cooked meals, fresh baking, tea, and warm conversation.',
     amenities: [
-      'Large dining tables for shared, family-style meals',
-      'Hot home-cooked breakfast, lunch, and dinner served daily',
-      'Continuous access to fresh hot tea, coffee, and fruit snacks',
-      'Dietary accommodation for soft diets, diabetic, and low-sodium needs',
-      'Special celebration table for birthdays and holiday feasts'
+      'Family-style dining tables with wood-look flooring',
+      'Hot home-cooked breakfast, lunch, and supper daily',
+      'Fresh tea, coffee, fruit, and snacks throughout the day',
+      'Dietary accommodations for individual health requirements',
+      'Birthday celebrations and holiday dinners'
     ],
     safetyFeatures: [
-      'Certified commercial kitchen meeting provincial food safety standards',
-      'Supervised dining assistance for residents requiring mealtime support',
-      'Non-slip flooring and accessible dining seating'
+      'Commercial grade clean kitchen adhering to public health guidelines',
+      'Assistance provided for residents requiring mealtime support'
     ],
-    image: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
-    imageAlt: 'Warm country kitchen and dining area with wooden tables and welcoming atmosphere'
+    image: hiHavenInteriorDining,
+    imageAlt: 'Hi Haven Manor dining and kitchen area'
+  },
+  {
+    id: 'hearth-living-room',
+    name: 'Communal Living Room & Lounge',
+    tier: 'Living & Social Area',
+    tagline: 'The heart of our home for conversation, television, reading, and family visits.',
+    view: 'Central living area with park-like outdoor views',
+    description: 'A welcoming, comfortable living area furnished with leather sofas, recliners, bookshelves, television, board games, and quiet corners for relaxing or visiting with family and friends.',
+    amenities: [
+      'Comfortable leather couches and recliners for group relaxation',
+      'Library collection of novels, puzzles, and magazines',
+      'Television and radio for news, movies, and music',
+      'In-house canteen nearby for snacks and drinks',
+      'Family visiting area warmly welcoming guests anytime'
+    ],
+    safetyFeatures: [
+      'Open layout allowing respectful 24/7 staff supervision',
+      'Bright lighting and level, trip-free flooring'
+    ],
+    image: hiHavenInteriorDining,
+    imageAlt: 'Hi Haven Manor communal living and library space'
+  },
+  {
+    id: 'park-grounds',
+    name: 'Park-Like Grounds & Outdoor Living',
+    tier: 'Outdoor Grounds',
+    tagline: 'Vibrant Adirondack chairs, picnic tables, pine trees, and fresh coastal air.',
+    view: 'Spacious green lawns framed by evergreen spruce and birch forest',
+    description: 'Our property features extensive landscaped grounds where residents can sit in colorful lawn chairs, enjoy outdoor picnic meals on sunny days, or take peaceful walks in the fresh Holyrood air.',
+    amenities: [
+      'Colorful Adirondack lawn chairs in yellow, red, blue, and green',
+      'Outdoor wooden picnic tables for meals and gatherings',
+      'Rustic garden bench surrounded by seasonal flowers and stones',
+      'Lush green lawns bordered by peaceful spruce forest',
+      'Direct access to fresh Avalon Peninsula coastal breezes'
+    ],
+    safetyFeatures: [
+      'Secure, level grounds with easy visibility from the main home',
+      'Gentle paved access walkways'
+    ],
+    image: hiHavenLawnChairs,
+    imageAlt: 'Hi Haven Manor colorful outdoor lawn chairs on green grass'
   }
 ];
+
 
 export const DAILY_SCHEDULE: DailyActivitySlot[] = [
   {
     time: '7:30 AM — 9:00 AM',
     period: 'Morning',
-    title: 'Warm Breakfast & Morning Check-In',
-    description: 'Hot porridge, eggs, toast, tea, and coffee in the dining room. Staff administer morning medications and greet each resident individually to begin the day on a calm, positive note.',
-    category: 'Morning Routine & Wellness',
+    title: 'Home-Cooked Breakfast & Morning Check-In',
+    description: 'Hot breakfast, eggs, toast, tea, and coffee in the dining room. Staff administer morning medications and greet each resident individually.',
+    category: 'Home Cooked Meals',
     iconName: 'Coffee'
   },
   {
     time: '9:30 AM — 11:30 AM',
     period: 'Morning',
-    title: 'Fresh Air Walks & Daily Rhythms',
-    description: 'Strolls around the quiet Butter Pot grounds, tending to the garden, personal tidying, or relaxing in the living room with the morning paper and radio.',
-    category: 'Life Skills & Community',
+    title: 'Fresh Air Walks & Leisure Time',
+    description: 'Relaxing on the colorful lawn chairs, walks on our park-like grounds, tending personal spaces, or reading in the library.',
+    category: 'Recreation & Leisure',
     iconName: 'Trees'
   },
   {
     time: '12:00 PM — 1:30 PM',
     period: 'Midday',
     title: 'Home-Cooked Midday Dinner',
-    description: 'A hearty hot meal—soups, roast meats, vegetables, and fresh rolls—served family-style. Midday medications administered with care.',
-    category: 'Home-Cooked Meals',
+    description: 'A hearty hot meal served family-style. Midday medications and clinical check-ins handled with care.',
+    category: 'Home Cooked Meals',
     iconName: 'Utensils'
   },
   {
     time: '2:00 PM — 3:30 PM',
     period: 'Afternoon',
-    title: 'Creative Activities & Social Connection',
-    description: 'Board games, card matches, puzzles, craft projects, music listening, or simply resting quietly in private rooms.',
-    category: 'Life Skills & Community',
+    title: 'Recreation Program & Canteen Time',
+    description: 'Board games, puzzles, craft projects, visits to the in-house canteen, or weekly visiting doctor appointments.',
+    category: 'Recreation & Leisure',
     iconName: 'Palette'
   },
   {
     time: '3:30 PM — 4:30 PM',
     period: 'Afternoon',
-    title: 'Afternoon Tea & Family Visiting',
-    description: 'Fresh baked treats, tea, and coffee. Family members and friends are warmly welcomed to visit, sit in the living room, or enjoy the patio.',
-    category: 'Rest & Social Connection',
+    title: 'Afternoon Tea & Family Visits',
+    description: 'Fresh baked treats, tea, and coffee. Family and friends are warmly welcomed to visit and spend time together.',
+    category: 'Family & Social',
     iconName: 'HeartHandshake'
   },
   {
     time: '5:00 PM — 6:30 PM',
     period: 'Evening',
-    title: 'Comfort Evening Supper',
-    description: 'A lighter, comforting evening meal followed by tea. Evening medications are administered and staff assist with nighttime preparations.',
-    category: 'Home-Cooked Meals',
+    title: 'Comfort Home-Cooked Supper',
+    description: 'A comforting evening meal followed by tea. Evening medications administered by certified PCAs.',
+    category: 'Home Cooked Meals',
     iconName: 'Utensils'
   },
   {
     time: '7:00 PM — 9:00 PM',
     period: 'Evening',
-    title: 'Fireside Relaxation & Wind-Down',
-    description: 'Watching an evening movie, listening to music, reading by the hearth, or relaxing before a peaceful night\'s sleep under 24/7 staff supervision.',
-    category: 'Rest & Social Connection',
+    title: 'Living Room Wind-Down & Movies',
+    description: 'Watching television, reading in the library, or chatting with friends before a peaceful night under 24/7 supervision.',
+    category: 'Recreation & Leisure',
     iconName: 'Tv'
   }
 ];
@@ -309,125 +509,136 @@ export const DAILY_SCHEDULE: DailyActivitySlot[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'g-1',
-    title: 'Hi Haven Manor in Holyrood, NL',
+    title: 'Hi Haven Manor Blue Exterior & Lawn Chairs',
     category: 'home',
-    categoryLabel: 'Our 17-Bed Home',
-    caption: 'Our peaceful residential home in Holyrood, surrounded by natural evergreen trees and Butter Pot hills.',
-    imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+    categoryLabel: 'Our 15-Resident Home',
+    caption: 'Our peaceful blue home in Holyrood with colorful Adirondack chairs on the green lawn under Newfoundland skies.',
+    imageUrl: hiHavenMainExterior,
     aspectRatio: 'landscape'
   },
   {
     id: 'g-2',
-    title: 'The Hearth & Communal Living Room',
-    category: 'home',
-    categoryLabel: 'Living Spaces',
-    caption: 'Comfortable living room with warm fireplace, sofas, book library, and peaceful gathering nooks.',
-    imageUrl: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80',
-    aspectRatio: 'landscape'
-  },
-  {
-    id: 'g-3',
-    title: 'Sunlit Private Resident Bedroom',
+    title: 'Home Dining Room & Living Lounge Interior',
     category: 'rooms',
-    categoryLabel: 'Bedrooms',
-    caption: 'Clean, warm private room with natural wood furnishings, daylight windows, and personal touches.',
-    imageUrl: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=80',
+    categoryLabel: 'Interior Spaces',
+    caption: 'Bright dining room with family tables, wood-look flooring, holiday decor, and comfortable leather armchairs in the living area.',
+    imageUrl: hiHavenInteriorDining,
     aspectRatio: 'portrait'
   },
   {
+    id: 'g-3',
+    title: 'Vibrant Adirondack Lawn Chairs',
+    category: 'grounds',
+    categoryLabel: 'Park-Like Grounds',
+    caption: 'Row of yellow, red, and blue lawn chairs set on our expansive green lawn with granite rocks and spruce forest.',
+    imageUrl: hiHavenLawnChairs,
+    aspectRatio: 'landscape'
+  },
+  {
     id: 'g-4',
-    title: 'Country Kitchen & Shared Dining',
-    category: 'dining',
-    categoryLabel: 'Nutritious Meals',
-    caption: 'Where three wholesome, home-cooked meals and afternoon tea are prepared and shared every day.',
-    imageUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80',
+    title: 'Building Exterior & Outdoor Picnic Grounds',
+    category: 'home',
+    categoryLabel: 'Exterior & Grounds',
+    caption: 'Single-level blue residence with wooden picnic tables for outdoor dining, visits, and sunny afternoons.',
+    imageUrl: hiHavenPicnicExterior,
     aspectRatio: 'landscape'
   },
   {
     id: 'g-5',
-    title: '24/7 Compassionate Care Attendants',
-    category: 'care',
-    categoryLabel: 'Caring Staff',
-    caption: 'Attentive, certified staff on-duty around the clock providing respect, support, and medication management.',
-    imageUrl: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80',
+    title: '36 Butterpot Road Entrance Road Sign',
+    category: 'grounds',
+    categoryLabel: 'Location & Signage',
+    caption: 'Our welcoming road sign along Butterpot Road nestled among evergreen spruce and birch trees in Holyrood.',
+    imageUrl: hiHavenSign,
     aspectRatio: 'portrait'
   },
   {
     id: 'g-6',
-    title: 'Quiet Garden & Walking Grounds',
+    title: 'Park-Like Property with Pine Tree & Flower Bench',
     category: 'grounds',
-    categoryLabel: 'Tranquil Grounds',
-    caption: 'Peaceful outdoor grounds along Butter Pot Road with fresh coastal forest air and seating areas.',
-    imageUrl: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=1200&q=80',
+    categoryLabel: 'Park-Like Grounds',
+    caption: 'Lawn grounds featuring a pine tree, flower-lined park bench, and quiet spots for fresh air and conversation.',
+    imageUrl: hiHavenParkGrounds,
     aspectRatio: 'landscape'
   },
   {
     id: 'g-7',
-    title: 'Home-Cooked Nutritious Dining',
-    category: 'dining',
-    categoryLabel: 'Nutritious Meals',
-    caption: 'Hearty, balanced meals prepared fresh daily accommodating diabetic and special dietary guidelines.',
-    imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80',
+    title: 'Paved Driveway Approach & Surrounding Forest',
+    category: 'home',
+    categoryLabel: 'Our 15-Resident Home',
+    caption: 'Convenient driveway approach leading to Hi Haven Manor with ample parking and peaceful forest backdrop.',
+    imageUrl: hiHavenDriveway,
     aspectRatio: 'landscape'
   },
   {
     id: 'g-8',
-    title: 'Reading Nook & Quiet Reflection',
-    category: 'home',
-    categoryLabel: 'Living Spaces',
-    caption: 'Quiet spaces for reading, reflection, puzzle-solving, or chatting with visiting loved ones.',
-    imageUrl: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80',
-    aspectRatio: 'portrait'
+    title: 'Tranquil Holyrood Pond & Mountain Hills (Summer)',
+    category: 'scenic',
+    categoryLabel: 'Holyrood Landscape',
+    caption: 'Scenic freshwater pond with wild grasses and rolling forested mountain hills in peaceful Holyrood.',
+    imageUrl: hiHavenLakeSummer,
+    aspectRatio: 'landscape'
+  },
+  {
+    id: 'g-9',
+    title: 'Scenic Holyrood Lake & Snow Landscape (Winter)',
+    category: 'scenic',
+    categoryLabel: 'Holyrood Landscape',
+    caption: 'Crisp winter view of the frozen Holyrood lake, dock, and snow-capped mountain ridge under clear blue skies.',
+    imageUrl: hiHavenLakeWinter,
+    aspectRatio: 'landscape'
   }
 ];
 
+
+
 export const ACCREDITATION_STANDARDS: AccreditationStandard[] = [
   {
-    id: 'provincial-licensing',
-    title: 'Provincial Personal Care Home Standards',
-    authority: 'Government of Newfoundland & Labrador (NL Health Services)',
-    description: 'Officially licensed residential personal care home meeting all provincial operating standards, safety inspections, staff ratios, and hygiene protocols.',
-    status: 'Fully Licensed & Active',
+    id: 'eastern-health-program',
+    title: 'Mental Health & Addiction Program',
+    authority: 'Eastern Health / Newfoundland and Labrador Health Services',
+    description: 'Providing supervised residential living accommodations, clinical support, therapeutic recreation, and a leisure program for adults living with severe and persistent mental illness.',
+    status: 'Government Subsidized Program',
     details: [
-      'Regular provincial health and life-safety inspections',
-      'Routine fire safety, emergency plans, and evacuation protocols',
-      'Standardized medication storage, administration, and logging'
+      'Provincial financial subsidy eligibility for qualifying residents',
+      'Clinical coordination with regional mental health case teams',
+      'Promotion of self-determination and community integration'
     ]
   },
   {
     id: 'staff-qualification',
     title: 'Certified Personal Care Attendants (PCAs)',
-    authority: 'Provincial Health Standards & Vulnerable Sector Clearance',
-    description: 'Our caregivers hold verified credentials, mandatory vulnerable sector screening, First Aid/CPR, and specialized mental health support training.',
-    status: '100% Screened Personnel',
+    authority: 'Personal Care Attendant Certification Standards',
+    description: 'Several staff members have completed certified PCA training courses, providing 24/7 medication management, personal care, and emotional support.',
+    status: 'Certified PCA Personnel',
     details: [
-      'Mandatory criminal record & vulnerable sector checks for all staff',
-      'Trauma-informed care and de-escalation training',
-      'Certified medication administration competency verification'
+      'Certified medication administration and logging protocols',
+      'Compassionate surrogate family care approach',
+      'Trained in respectful assistance with daily living'
     ]
   },
   {
-    id: 'nutrition-safety',
-    title: 'Dietary & Food Safety Compliance',
-    authority: 'Service NL & Public Health Inspection Division',
-    description: 'Our kitchen meets all public health inspection standards, offering balanced, dietitian-reviewed meal planning with fresh ingredients.',
-    status: 'Inspected & Approved',
+    id: 'medical-supervision',
+    title: 'Weekly Doctor Visits & Specialist Access',
+    authority: 'Community General Practitioner & Psychiatric Specialists',
+    description: 'Regular ongoing medical attention from a local General Practitioner who visits our home weekly, with access to psychiatric specialists.',
+    status: 'Weekly Medical Attention',
     details: [
-      'Certified Food Handler oversight on kitchen operations',
-      'Specialized texture and diabetic protocol adherence',
-      'Continuous fresh drinking water and emergency food reserves'
+      'Weekly in-home General Practitioner visits',
+      'Direct coordination with psychiatric and clinical specialists',
+      'Coordinated transport to outside medical appointments'
     ]
   },
   {
     id: 'legacy-reputation',
-    title: '20+ Year Dedicated Family-Led Care',
-    authority: "Condon's Home for Special Care Inc.",
-    description: 'Operated by Lori and Rob Condon in Holyrood since 2004, providing consistent, trustworthy community care rooted in human kindness.',
-    status: 'Established 2004',
+    title: '40+ Year Heritage in Holyrood',
+    authority: 'Family-Run Business Since the 1970s / Updated 2015',
+    description: 'A historic Holyrood property with over 40 years of service, thoroughly renovated in 2015 to offer modern comfort in a 15-resident maximum home.',
+    status: 'Renovated 2015',
     details: [
-      'Over 2 decades of continuous service to Newfoundland families',
-      'Strong collaboration with NL Health Services case managers & social workers',
-      'Direct owner involvement in daily operations and resident well-being'
+      'Over 4 decades of community presence in Holyrood, NL',
+      'Complete renovations and facility updates in 2015',
+      'Strong family and community relationships encouraged'
     ]
   }
 ];
@@ -435,53 +646,57 @@ export const ACCREDITATION_STANDARDS: AccreditationStandard[] = [
 export const ADMISSION_STEPS = [
   {
     step: '01',
-    title: 'Initial Conversation & Inquiry',
-    description: 'Call or message us. We listen compassionately to your situation, discuss care needs, and explain how our home operates.'
+    title: 'Initial Contact & Conversation',
+    description: 'Reach out by phone or our online form. We discuss care needs, our 15-bed home setting, and answer all initial questions.'
   },
   {
     step: '02',
-    title: 'Warm In-Person Visit',
-    description: 'Come see the home, meet Lori & Rob and our caring staff, view available rooms, and get a real feel for our calm community.'
+    title: 'Come Visit Hi Haven in Holyrood',
+    description: 'Visit our home at 36 Butterpot Road, meet our staff, tour the rooms, and see our park-like grounds firsthand.'
   },
   {
     step: '03',
-    title: 'Care Review & Subsidy Coordination',
-    description: 'We collaborate with NL Health Services case managers, social workers, or family physicians to ensure proper medical and subsidy paperwork is arranged.'
+    title: 'Care Plan & Subsidy Application',
+    description: 'Because our program is government subsidized through Eastern Health (NL Health Services), we assist with financing applications and case worker coordination.'
   },
   {
     step: '04',
-    title: 'Welcoming Move-In & Settling In',
-    description: 'We help set up the room with personal belongings, establish comfortable daily routines, and welcome the resident warmly into the Hi Haven family.'
+    title: 'Welcoming Move-In to the Family',
+    description: 'We welcome the resident into our surrogate family setting, establish a personalized care plan, and support their growth and comfort.'
   }
 ];
 
 export const FAQS = [
   {
-    question: 'What kind of home is Hi Haven Manor?',
-    answer: 'Hi Haven Manor is a 17-bed community care home in Holyrood, Newfoundland & Labrador. We provide a supportive, family-style residential environment for individuals living with mental health and addiction-related challenges, as well as those needing Level 1 and Level 2 personal care. We are a home and a community first—not an institution or a hospital.'
+    question: 'What is Hi Haven Manor and who does it serve?',
+    answer: 'Hi Haven Manor is a small residential care home accommodating a maximum of 15 adult residents in Holyrood, NL. Nestled in a park-like environment among the trees, we provide a personalized home environment (rather than an institution) offering supervised living accommodations, clinical support, therapeutic recreation, and a leisure program under the Mental Health and Addiction program of Eastern Health (NL Health Services).'
   },
   {
-    question: 'Who lives at Hi Haven and what care do you provide?',
-    answer: 'Our residents are adults and seniors who benefit from structured daily routines, 24/7 staff presence, medication management, home-cooked meals, and a calm, supportive environment. We treat every resident with respect and dignity as an individual person.'
+    question: 'How long has Hi Haven Manor been operating?',
+    answer: 'Hi Haven Manor has been a family-run business in Holyrood for over 40 years. Originally a motel, tavern, and cabins, it transitioned into a care home when the local refinery shut down. In 2015, new owners and management took over and completed extensive updates and modern renovations throughout the facilities.'
   },
   {
-    question: 'How do admissions and NL Health Services subsidies work?',
-    answer: 'Placements can be arranged privately or through Newfoundland & Labrador Health Services (NLHS) personal care home subsidies. We regularly work with regional health case managers, social workers, and families to help navigate assessments and subsidy approvals smoothly.'
+    question: 'Is Hi Haven Manor government subsidized?',
+    answer: 'Yes. Our program operates under the Mental Health and Addiction program of Eastern Health / NL Health Services and is government subsidized. Potential residents and their families can apply for provincial financing/subsidies.'
   },
   {
-    question: 'Who owns and runs Hi Haven Manor?',
-    answer: 'Hi Haven Manor is owned and operated by Lori and Rob Condon under Condon\'s Home for Special Care Inc. They have provided dedicated, hands-on community care in Holyrood for over 20 years.'
+    question: 'What medical and doctor services are available?',
+    answer: 'Our residents benefit from weekly visits by a community General Practitioner right at our home, as well as access to psychiatric specialists and other medical doctors who provide ongoing attention. In addition, we coordinate transportation to medical appointments.'
+  },
+  {
+    question: 'What qualifications do your staff have?',
+    answer: 'We are delighted that several of our dedicated staff members have completed their certified PCA (Personal Care Attendant) training course, ensuring skilled, compassionate care and safe medication administration.'
+  },
+  {
+    question: 'What is the philosophy around supervision and independence?',
+    answer: 'Our supervision provided is no greater than the degree necessary, with the explicit goal of having residents integrated into the community. Our care plans center around individual needs where residents determine for themselves how they wish to meet their own goals.'
   },
   {
     question: 'Can family and friends visit?',
-    answer: 'Absolutely. Maintaining close connections with family and loved ones is vital to well-being. Our visiting hours are daily from 9:00 AM to 8:00 PM, and we warmly welcome family members to spend time in our living room, garden, or private suites.'
+    answer: 'Yes, absolutely! We actively establish and maintain close relationships with our residents’ families and friends, and warmly encourage visits.'
   },
   {
-    question: 'How is medication managed?',
-    answer: 'All medications are securely stored and administered by trained, certified personal care attendants according to precise physician orders and provincial personal care home standards, in close partnership with local pharmacies.'
-  },
-  {
-    question: 'How can I schedule a visit or ask questions?',
-    answer: 'You can arrange a visit using our online visit scheduling form on this page or by calling us directly at (709) 229-7992. We are always happy to speak with you openly and answer any questions.'
+    question: 'How do I contact Hi Haven Manor or arrange a visit?',
+    answer: 'You can contact us at 709-229-7992, email info@hihaven.ca, or fill out the contact form on this website. Our address is 36 Butterpot Road, Holyrood, NL A0A 2R0.'
   }
 ];

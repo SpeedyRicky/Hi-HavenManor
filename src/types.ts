@@ -5,7 +5,7 @@ export interface CareProgram {
   shortDescription: string;
   fullDescription: string;
   eligibility: string;
-  careLevel: 'Mental Health & Recovery Support' | 'Level 1 & 2 Personal Care' | 'Life Skills & Respite' | 'Nutrition & Wellness';
+  careLevel: string;
   highlights: string[];
   keyFeatures: string[];
   staffingRatio: string;
@@ -16,7 +16,7 @@ export interface CareProgram {
 export interface ResidenceSuite {
   id: string;
   name: string;
-  tier: 'Private Bedroom' | 'Semi-Private Room' | 'Communal Living Space';
+  tier: string;
   tagline: string;
   view: string;
   description: string;
@@ -31,19 +31,21 @@ export interface DailyActivitySlot {
   period: 'Morning' | 'Midday' | 'Afternoon' | 'Evening';
   title: string;
   description: string;
-  category: 'Morning Routine & Wellness' | 'Home-Cooked Meals' | 'Life Skills & Community' | 'Rest & Social Connection';
+  category: string;
   iconName: string;
 }
+
 
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'home' | 'rooms' | 'dining' | 'grounds' | 'care';
+  category: 'home' | 'rooms' | 'dining' | 'grounds' | 'care' | 'scenic';
   categoryLabel: string;
   caption: string;
   imageUrl: string;
   aspectRatio: 'landscape' | 'portrait' | 'square';
 }
+
 
 export interface AccreditationStandard {
   id: string;

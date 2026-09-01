@@ -1,6 +1,6 @@
 {
   "name": "Hi Haven Manor",
-  "description": "A welcoming 17-bed community care home in Holyrood, Newfoundland & Labrador, providing a supportive, respectful residential environment for individuals living with mental health and addiction-related challenges.",
+  "description": "A welcoming 15-resident community care home in Holyrood, Newfoundland & Labrador, providing a supportive surrogate family environment, home cooked meals, and clinical support under Eastern Health Mental Health and Addiction program.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
